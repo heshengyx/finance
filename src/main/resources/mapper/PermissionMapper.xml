@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myself.community.mapper.PermissionMapper">
+	<resultMap type="permission" id="permissionResult">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<id column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+<result column="NAME" property="name" jdbcType="VARCHAR" />
+<result column="URL" property="url" jdbcType="VARCHAR" />
+<result column="STATUS" property="status" jdbcType="VARCHAR" />
+<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+<result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="queryPermissionsByRoleId" parameterType="String" resultMap="permissionResult">
+		SELECT a.* FROM PERMISSION a, ROLE_PERMISSION b WHERE a.ID = b.PERMISSION_ID AND b.ROLE_ID = #{roleId}
+	</select>
+	<select id="listAll" resultMap="permissionResult">
+		SELECT a.* FROM PERMISSION a
+	</select>
+	
+	<select id="getRole" parameterType="int" resultMap="permissionResult">
+		SELECT * FROM CLAZZ WHERE ID=#{id, jdbcType=NUMERIC}
+	</select>
+	<select id="list" parameterType="pageResult" resultMap="permissionResult">
+		SELECT * FROM PERMISSION 
+		<where>
+<if test="entity.name != null and entity.name != ''">
+	and NAME = #{entity.name}
+</if>
+<if test="entity.status != null and entity.status != ''">
+	and STATUS = #{entity.status}
+</if>
+<if test="entity.createTime != null and entity.createTime != ''">
+	and to_char(CREATE_TIME, 'YYYY-MM-DD') = #{entity.createTime}
+</if>
+</where> 
+		order by CREATE_TIME desc
+	</select>
+	
+	<insert id="save" parameterType="permission" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO PERMISSION (ID, PARENT_ID, NAME, URL, STATUS, CREATE_TIME, REMARKS)
+		VALUES (
+#{id, jdbcType=VARCHAR},
+#{parentId, jdbcType=VARCHAR},
+#{name, jdbcType=VARCHAR},
+#{url, jdbcType=VARCHAR},
+#{status, jdbcType=VARCHAR},
+#{createTime, jdbcType=TIMESTAMP},
+#{remarks, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update" parameterType="permission">
+		update CLAZZ
+		<set>
+<if test="className != null">
+	CLASS_NAME = #{className, jdbcType=VARCHAR},
+</if>
+<if test="tableName != null">
+	TABLE_NAME = #{tableName, jdbcType=VARCHAR},
+</if>
+<if test="title != null">
+	TITLE = #{title, jdbcType=VARCHAR},
+</if>
+<if test="status != null">
+	STATUS = #{status, jdbcType=VARCHAR},
+</if>
+
+		</set>
+		where id = #{id, jdbcType=NUMERIC}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from CLAZZ where id = #{id, jdbcType=NUMERIC}
+	</delete>
+</mapper>
