@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties>  
+	    <property name="dialect" value="mysql" />  
+	</properties>
+	
+	<typeAliases>
+		<typeAlias type="com.myself.finance.page.Page" alias="pageResult" />
+		<typeAlias type="com.myself.finance.entity.User" alias="user" />
+		<typeAlias type="com.myself.finance.entity.Role" alias="role" />
+		<typeAlias type="com.myself.finance.entity.Permission" alias="permission" />
+		<!-- [typeAlias] -->
+	</typeAliases>
+	
+	<plugins>  
+    	<plugin interceptor="com.myself.finance.interceptor.PageInterceptor" />   
+	</plugins>
+</configuration>
