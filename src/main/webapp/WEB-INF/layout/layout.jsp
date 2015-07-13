@@ -26,8 +26,11 @@
 
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-      	<div class="navbar-header">
-      	<a class="navbar-brand" href="#">Project name</a>
+      	<div class="container-header">
+      	<div class="row">
+      		<div class="col-md-8"><h3>人人贷</h3></div>
+      		<div class="col-md-4 text-right"><h3>登录</h3></div>
+      	</div>
       	</div>
       </div>
     </nav>
