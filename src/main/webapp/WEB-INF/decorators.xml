@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<decorators defaultdir="/WEB-INF/layouts/">  
+<decorators defaultdir="/WEB-INF/layout/">  
     <!-- 此处用来定义不需要过滤的页面 -->  
     <excludes>
     	<pattern>/images/*</pattern>
@@ -8,7 +8,8 @@
     </excludes>  
   
  	<!-- 用来定义装饰器要过滤的页面 -->  
-    <decorator name="layout-manage" page="layout-manage.jsp">  
-        <pattern>/manage/*</pattern>  
+    <decorator name="layout" page="layout.jsp">  
+        <pattern>/login</pattern>
+        <pattern>/register</pattern>
     </decorator>
 </decorators>
