@@ -7,4 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/register")
 public class RegisterController extends BaseController {
 
+	@RequestMapping("")
+	public String page() {
+		return "register";
+	}
 }

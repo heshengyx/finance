@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<title>P2P网-用户登录</title>		
+	<title>P2P网-用户注册</title>		
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 		        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
 		      </form>
 		      <div class="form-signin">
-		        <p class="text-center">没有账号？ <a href="${ctx}/register">免费注册</a></p>
+		        <p class="text-center">没有账号？ <a href="#">免费注册</a></p>
 		        <hr class="divider" />
 		        <!-- <p><span>您还可以使用合作账号登录</span>
                    <a id="partner-qq" class="partner" href="http://www.renrendai.com/oauth/qq/login!beForeQQLogin.action?type=1">腾讯账号</a>
