@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+	<!-- 对不同的路径，启用不同的装饰器 -->
+	<mapping path="/login" decorator="/WEB-INF/layout/layout.jsp"/>
+	<mapping path="/register" decorator="/WEB-INF/layout/layout.jsp"/>
+	
+	<!-- 排除，不进行装饰的路径 -->
+	<mapping path="/images/*" exclude="true"/>
+	<mapping path="/css/*" exclude="true"/>
+	<mapping path="/js/*" exclude="true"/>
+	
+	<!-- 自定义 tag 规则 -->
+	<content-processor>
+		<tag-rule-bundle class="com.myself.finance.tag.NavTitleTagRuleBundle" />
+	</content-processor>
+</sitemesh>

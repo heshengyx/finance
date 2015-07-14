@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -12,14 +11,16 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><decorator:title default="默认title"/></title>
+    <title><sitemesh:write property="title" /></title>
     <!-- Bootstrap core CSS -->
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctx}/css/bootstrapValidator.min.css" rel="stylesheet">
     <link href="${ctx}/css/style.css" rel="stylesheet">
     <!-- js -->
-    <script src="${ctx}/js/jquery.min.js"></script>
+    <script src="${ctx}/js/jquery.min.js" ></script>
     <script src="${ctx}/js/bootstrap.min.js"></script>
-    <decorator:head/>
+    <script src="${ctx}/js/bootstrapValidator.min.js"></script>
+    <sitemesh:write property="head" />
   </head>
 
   <body>
@@ -29,14 +30,14 @@
       	<div class="container-header">
       	<div class="row">
       		<div class="col-md-8"><h3>人人贷</h3></div>
-      		<div class="col-md-4 text-right"><h3>登录</h3></div>
+      		<div class="col-md-4 text-right"><h3><sitemesh:write property="navTitle" /></h3></div>
       	</div>
       	</div>
       </div>
     </nav>
 
     <div class="container">
-      <decorator:body />
+      <sitemesh:write property="body" />
     </div>
 
     <!-- Bootstrap core JavaScript

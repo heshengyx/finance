@@ -7,36 +7,53 @@
 </head>
 
 <body>
-	
-	<div class="container-login">
+	<navTitle>注册</navTitle>
+	<div class="container-content">
 		<div class="row">
-		  <div class="col-md-8"><img src="${ctx}/images/login.png" /></div>
-		  <div class="col-md-4">
-		  <div class="form-content">
-			  <form class="form-signin">
-		        <div class="form-group">
-				  <label for="exampleInputEmail1">用户名</label>
-				  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="手机号/邮箱">
-				</div>
-				<div class="form-group">
-				  <label for="exampleInputPassword1">密码</label>
-				  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
-				</div>
-		        <div class="checkbox">
-		          <label>
-		            <input type="checkbox" value="remember-me"> 记住用户名
-		          </label>
-		        </div>
-		        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-		      </form>
-		      <div class="form-signin">
-		        <p class="text-center">没有账号？ <a href="#">免费注册</a></p>
-		        <hr class="divider" />
-		        <!-- <p><span>您还可以使用合作账号登录</span>
-                   <a id="partner-qq" class="partner" href="http://www.renrendai.com/oauth/qq/login!beForeQQLogin.action?type=1">腾讯账号</a>
-                   <a id="partner-weibo" class="partner" href="https://api.weibo.com/oauth2/authorize?client_id=915664347&redirect_uri=http%3A%2F%2Fwww.renrendai.com%2Foauth%2Fweibo%2Flogin.action&forcelogin=true">新浪微博</a></p> -->
-		      </div>
+		  <div class="col-md-8">
+		  	<div class="form-content">
+		    <form class="form-horizontal">
+		      <div class="form-group">
+			    <label for="inputName" class="col-sm-3 control-label">用户名</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" id="inputName" placeholder="输入用户名">
+			    </div>
+			  </div>
+			  <br/>
+			  <div class="form-group">
+			    <label for="inputPhone" class="col-sm-3 control-label">手机号码</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" id="inputPhone" placeholder="输入手机号码">
+			    </div>
+			  </div>
+			  <br/>
+			  <div class="form-group">
+			    <label for="inputPassword" class="col-sm-3 control-label">登录密码</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" id="inputPassword" placeholder="输入登录密码">
+			    </div>
+			  </div>
+			  <br/>
+			  <div class="form-group">
+			    <label for="inputPasswordConfirm" class="col-sm-3 control-label">确认密码</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" id="inputPasswordConfirm" placeholder="输入确认密码">
+			    </div>
+			  </div>
+			  <br/>
+			  <div class="form-group">
+			    <div class="col-sm-offset-3 col-sm-6">
+			      <button type="submit" class="btn btn-primary">立即注册</button>
+			    </div>
+			  </div>
+		    </form>
+		    </div>
 		  </div>
+		  <div class="col-md-4">
+		    <div class="form-content">
+		      <p class="text-center">已有账号？ <a href="${ctx}/login">立即登录</a></p>
+		      <p class="text-center"><img src="${ctx}/images/money.png" /></p>
+		    </div>
 		  </div>
 		</div>
 	</div>
