@@ -7,11 +7,8 @@
 	<script>
 	$(document).ready(function() {
 		$('#loginForm').bootstrapValidator({
-			message: 'This value is not valid',
-	        excluded: [':disabled'],
 			submitHandler: function(validator, form, submitButton) {
-                // Do nothing
-                alert(1);
+				form.submit();
             },
 			fields: {
 				username: {
@@ -41,7 +38,7 @@
 		  <div class="col-md-8"><img src="${ctx}/images/login.png" /></div>
 		  <div class="col-md-4">
 		  <div class="form-content">
-			  <form id="loginForm">
+			  <form id="loginForm" action="${ctx}/login/refer" method="post">
 		        <div class="form-group">
 				  <label for="inputUsername">用户名</label>
 				  <input type="text" class="form-control" name="username" id="inputUsername" placeholder="手机号/邮箱">
