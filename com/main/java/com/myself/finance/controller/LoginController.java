@@ -1,9 +1,11 @@
 package com.myself.finance.controller;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myself.finance.entity.User;
 
@@ -17,8 +19,12 @@ public class LoginController extends BaseController {
 	}
 	
 	@RequestMapping(value="/refer", method=RequestMethod.POST)
-	@ResponseBody
-	public Object login(User user) {
-		return null;
+	public String login(User user) {
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(
+				user.getAccount(), user.getPassword());
+		//token.setRememberMe(true);
+		subject.login(token);
+		return "redirect:/user";
 	}
 }
