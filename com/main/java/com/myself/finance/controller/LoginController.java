@@ -20,11 +20,11 @@ public class LoginController extends BaseController {
 	
 	@RequestMapping(value="/refer", method=RequestMethod.POST)
 	public String login(User user) {
-		Subject subject = SecurityUtils.getSubject();
+		/*Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(
 				user.getAccount(), user.getPassword());
 		//token.setRememberMe(true);
-		subject.login(token);
+		subject.login(token);*/
 		return "redirect:/user";
 	}
 }
