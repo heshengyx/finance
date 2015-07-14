@@ -3,7 +3,49 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<title>P2P网-用户注册</title>		
+	<title>P2P网-用户注册</title>
+	<script>
+	$(document).ready(function() {
+		$('#registerForm').bootstrapValidator({
+			message: 'This value is not valid',
+	        excluded: [':disabled'],
+			submitHandler: function(validator, form, submitButton) {
+                // Do nothing
+                alert(1);
+            },
+			fields: {
+				username: {
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        }
+                    }
+                },
+                phone: {
+                    validators: {
+                        notEmpty: {
+                            message: '手机号码不能为空'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '登录密码不能为空'
+                        }
+                    }
+                },
+                passwordConfirm: {
+                    validators: {
+                        notEmpty: {
+                            message: '确认密码不能为空'
+                        }
+                    }
+                }
+			}
+        });
+	});
+	</script>		
 </head>
 
 <body>
@@ -12,32 +54,32 @@
 		<div class="row">
 		  <div class="col-md-8">
 		  	<div class="form-content">
-		    <form class="form-horizontal">
+		    <form id="registerForm" class="form-horizontal">
 		      <div class="form-group">
-			    <label for="inputName" class="col-sm-3 control-label">用户名</label>
+			    <label for="inputUsername" class="col-sm-3 control-label">用户名</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="inputName" placeholder="输入用户名">
+			      <input type="text" class="form-control" name="username" id="inputUsername" placeholder="输入用户名">
 			    </div>
 			  </div>
 			  <br/>
 			  <div class="form-group">
 			    <label for="inputPhone" class="col-sm-3 control-label">手机号码</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="inputPhone" placeholder="输入手机号码">
+			      <input type="text" class="form-control" name="phone" id="inputPhone" placeholder="输入手机号码">
 			    </div>
 			  </div>
 			  <br/>
 			  <div class="form-group">
 			    <label for="inputPassword" class="col-sm-3 control-label">登录密码</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="inputPassword" placeholder="输入登录密码">
+			      <input type="text" class="form-control" name="password" id="inputPassword" placeholder="输入登录密码">
 			    </div>
 			  </div>
 			  <br/>
 			  <div class="form-group">
 			    <label for="inputPasswordConfirm" class="col-sm-3 control-label">确认密码</label>
 			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="inputPasswordConfirm" placeholder="输入确认密码">
+			      <input type="text" class="form-control" name="passwordConfirm" id="inputPasswordConfirm" placeholder="输入确认密码">
 			    </div>
 			  </div>
 			  <br/>

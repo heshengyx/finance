@@ -7,12 +7,14 @@
 	<script>
 	$(document).ready(function() {
 		$('#loginForm').bootstrapValidator({
+			message: 'This value is not valid',
+	        excluded: [':disabled'],
 			submitHandler: function(validator, form, submitButton) {
                 // Do nothing
                 alert(1);
             },
 			fields: {
-				userName: {
+				username: {
                     validators: {
                         notEmpty: {
                             message: '用户名不能为空'
@@ -41,8 +43,8 @@
 		  <div class="form-content">
 			  <form id="loginForm">
 		        <div class="form-group">
-				  <label for="inputUserName">用户名</label>
-				  <input type="text" class="form-control" name="userName" id="inputUserName" placeholder="手机号/邮箱">
+				  <label for="inputUsername">用户名</label>
+				  <input type="text" class="form-control" name="username" id="inputUsername" placeholder="手机号/邮箱">
 				</div>
 				<div class="form-group">
 				  <label for="inputPassword">密码</label>
