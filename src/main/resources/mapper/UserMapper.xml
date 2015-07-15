@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.myself.community.mapper.UserMapper">
+<mapper namespace="com.myself.finance.mapper.UserMapper">
 	<resultMap type="user" id="userResult">
-		<id column="ID" property="id" jdbcType="NUMERIC" />
-<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+<result column="USERNAME" property="username" jdbcType="VARCHAR" />
 <result column="ACCOUNT" property="account" jdbcType="VARCHAR" />
 <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
 <result column="STATUS" property="status" jdbcType="VARCHAR" />
@@ -39,13 +39,13 @@
 	</select>
 	
 	<insert id="save" parameterType="user" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO CLAZZ (NAME, TSTATUS, CREATE_TIME, UPDATE_TIME, REMARKS)
+		INSERT INTO USER (ID, USERNAME, PASSWORD, STATUS, CREATE_TIME)
 		VALUES (
-#{name, jdbcType=VARCHAR},
+#{id, jdbcType=VARCHAR},
+#{username, jdbcType=VARCHAR},
+#{password, jdbcType=VARCHAR},
 #{status, jdbcType=VARCHAR},
-#{createTime, jdbcType=TIMESTAMP},
-#{updateTime, jdbcType=TIMESTAMP},
-#{remarks, jdbcType=VARCHAR})
+#{createTime, jdbcType=TIMESTAMP})
 	</insert>
 	
 	<update id="update" parameterType="user">

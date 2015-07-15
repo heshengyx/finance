@@ -9,7 +9,7 @@
 		$('#loginForm').bootstrapValidator({
 			submitHandler: function(validator, form, submitButton) {
 				//form.submit();
-				validator.defaultSubmit();
+				//validator.defaultSubmit();
 				/* $.ajax({
 				    url: '${ctx}/login/refer',
 				    type: 'POST',
@@ -19,9 +19,12 @@
 				        //alert("1");
 				    },
 				}); */
-				/* $.post(form.attr('action'), form.serialize(), function(result) {
-			        // ... process the result ...
-			    }, 'json'); */
+				$.post(form.attr('action'), form.serialize(), function(result) {
+					if (result.code == '500') {
+						$('#message').text(result.message);
+						validator.disableSubmitButtons(false);
+					}
+			    }, 'json');
             },
 			fields: {
 				account: {
@@ -51,6 +54,7 @@
 		  <div class="col-md-8"><img src="${ctx}/images/login.png" /></div>
 		  <div class="col-md-4">
 		  <div class="form-content">
+		  	  <div id="message" class="btn-danger"></div>
 			  <form id="loginForm" action="${ctx}/login/refer" method="post">
 		        <div class="form-group">
 				  <label for="inputUsername">用户名</label>
@@ -65,7 +69,7 @@
 		            <input type="checkbox" value="remember-me"> 记住用户名
 		          </label>
 		        </div>
-		        <button type="submit" class="btn btn-lg btn-primary btn-block" name="submit">登录</button>
+		        <button type="submit" class="btn btn-lg btn-primary btn-block">登录</button>
 		      </form>
 		  </div>
 		  <div class="form-content">

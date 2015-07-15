@@ -78,5 +78,5 @@
   		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
   		<property name="paramName" value="locale" />
   	</bean>
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" /> 
 </beans>

@@ -40,13 +40,13 @@ public class SecurityRealm extends AuthorizingRealm {
 	private PermissionDao permissionDao;
 
 	/**
-	 * Îªµ±Ç°µÇÂ¼µÄSubjectÊÚÓè½ÇÉ«ºÍÈ¨ÏŞ
+	 * ä¸ºå½“å‰ç™»å½•çš„Subjectæˆäºˆè§’è‰²å’Œæƒé™
 	 * 
-	 *  ¾­²âÊÔ:±¾ÀıÖĞ¸Ã·½·¨µÄµ÷ÓÃÊ±»úÎªĞèÊÚÈ¨×ÊÔ´±»·ÃÎÊÊ±
-	 *  ¾­²âÊÔ:²¢ÇÒÃ¿´Î·ÃÎÊĞèÊÚÈ¨×ÊÔ´Ê±¶¼»áÖ´ĞĞ¸Ã·½·¨ÖĞµÄÂß¼­,Õâ±íÃ÷±¾ÀıÖĞÄ¬ÈÏ²¢Î´ÆôÓÃAuthorizationCache
-	 *  ¸öÈË¸Ğ¾õÈôÊ¹ÓÃÁËSpring3
-	 *      .1¿ªÊ¼Ìá¹©µÄConcurrentMapCacheÖ§³Ö,Ôò¿ÉÁé»î¾ö¶¨ÊÇ·ñÆôÓÃAuthorizationCache
-	 *  ±ÈÈçËµÕâÀï´ÓÊı¾İ¿â»ñÈ¡È¨ÏŞĞÅÏ¢Ê±,ÏÈÈ¥·ÃÎÊSpring3.1Ìá¹©µÄ»º´æ,¶ø²»Ê¹ÓÃShiorÌá¹©µÄAuthorizationCache
+	 *  ç»æµ‹è¯•:æœ¬ä¾‹ä¸­è¯¥æ–¹æ³•çš„è°ƒç”¨æ—¶æœºä¸ºéœ€æˆæƒèµ„æºè¢«è®¿é—®æ—¶
+	 *  ç»æµ‹è¯•:å¹¶ä¸”æ¯æ¬¡è®¿é—®éœ€æˆæƒèµ„æºæ—¶éƒ½ä¼šæ‰§è¡Œè¯¥æ–¹æ³•ä¸­çš„é€»è¾‘,è¿™è¡¨æ˜æœ¬ä¾‹ä¸­é»˜è®¤å¹¶æœªå¯ç”¨AuthorizationCache
+	 *  ä¸ªäººæ„Ÿè§‰è‹¥ä½¿ç”¨äº†Spring3
+	 *      .1å¼€å§‹æä¾›çš„ConcurrentMapCacheæ”¯æŒ,åˆ™å¯çµæ´»å†³å®šæ˜¯å¦å¯ç”¨AuthorizationCache
+	 *  æ¯”å¦‚è¯´è¿™é‡Œä»æ•°æ®åº“è·å–æƒé™ä¿¡æ¯æ—¶,å…ˆå»è®¿é—®Spring3.1æä¾›çš„ç¼“å­˜,è€Œä¸ä½¿ç”¨Shioræä¾›çš„AuthorizationCache
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
@@ -83,22 +83,22 @@ public class SecurityRealm extends AuthorizingRealm {
 	}
 
 	/**
-	 * ÑéÖ¤µ±Ç°µÇÂ¼µÄSubject
+	 * éªŒè¯å½“å‰ç™»å½•çš„Subject
 	 * 
-	 * ¾­²âÊÔ:±¾ÀıÖĞ¸Ã·½·¨µÄµ÷ÓÃÊ±»úÎªLoginController.login()·½·¨ÖĞÖ´ĞĞSubject.login()Ê±
+	 * ç»æµ‹è¯•:æœ¬ä¾‹ä¸­è¯¥æ–¹æ³•çš„è°ƒç”¨æ—¶æœºä¸ºLoginController.login()æ–¹æ³•ä¸­æ‰§è¡ŒSubject.login()æ—¶
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken authcToken) throws AuthenticationException {
 		AuthenticationInfo authcInfo = null;
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		System.out.println("ÑéÖ¤µ±Ç°SubjectÊ±»ñÈ¡µ½tokenÎª"
+		System.out.println("éªŒè¯å½“å‰Subjectæ—¶è·å–åˆ°tokenä¸º"
 				+ ReflectionToStringBuilder.toString(token,
 						ToStringStyle.MULTI_LINE_STYLE));
 		User user = userDao.getUserByAccount(token.getUsername());
 		if (null != user) {
 			authcInfo = new SimpleAuthenticationInfo(user,
-					user.getPassword(), user.getName());
+					user.getPassword(), user.getUsername());
 			this.setSession("currentUser", user);
 		}
 		return authcInfo;
@@ -109,7 +109,7 @@ public class SecurityRealm extends AuthorizingRealm {
 		if (null != currentUser) {
 			Session session = currentUser.getSession();
 			System.out
-				.println("SessionÄ¬ÈÏ³¬Ê±Ê±¼äÎª[" + session.getTimeout() + "]ºÁÃë");
+				.println("Sessioné»˜è®¤è¶…æ—¶æ—¶é—´ä¸º[" + session.getTimeout() + "]æ¯«ç§’");
 			if (null != session) {
 				session.setAttribute(key, value);
 			}

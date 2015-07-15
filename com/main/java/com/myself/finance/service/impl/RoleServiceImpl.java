@@ -1,4 +1,4 @@
-package com.myself.finance.sevice.impl;
+package com.myself.finance.service.impl;
 
 import java.util.Date;
 import java.util.List;

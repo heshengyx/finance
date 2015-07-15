@@ -206,6 +206,18 @@
 			<artifactId>sitemesh</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+		<!-- kaptcha -->  
+		<dependency>  
+		    <groupId>com.google.code.kaptcha</groupId>  
+		    <artifactId>kaptcha</artifactId>  
+		    <version>2.3.2</version>  
+		</dependency>
+		<!-- 
+		<dependency>
+		    <groupId>com.github.axet</groupId>
+		    <artifactId>kaptcha</artifactId>
+		    <version>0.0.9</version>
+		</dependency> -->
 		
 		<!-- junit测试包 -->
 		<dependency>
