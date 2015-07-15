@@ -23,6 +23,8 @@
 					if (result.code == '500') {
 						$('#message').text(result.message);
 						validator.disableSubmitButtons(false);
+					} else {
+						window.location.href = '${ctx}/user';
 					}
 			    }, 'json');
             },

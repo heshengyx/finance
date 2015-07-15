@@ -39,10 +39,11 @@
 	</select>
 	
 	<insert id="save" parameterType="user" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO USER (ID, USERNAME, PASSWORD, STATUS, CREATE_TIME)
+		INSERT INTO USER (ID, USERNAME, ACCOUNT, PASSWORD, STATUS, CREATE_TIME)
 		VALUES (
 #{id, jdbcType=VARCHAR},
 #{username, jdbcType=VARCHAR},
+#{account, jdbcType=VARCHAR},
 #{password, jdbcType=VARCHAR},
 #{status, jdbcType=VARCHAR},
 #{createTime, jdbcType=TIMESTAMP})

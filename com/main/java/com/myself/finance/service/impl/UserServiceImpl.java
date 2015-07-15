@@ -3,6 +3,8 @@ package com.myself.finance.service.impl;
 import java.util.Date;
 
 import org.apache.commons.beanutils.PropertyUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ import com.myself.finance.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
+	private final static Logger logger = LoggerFactory
+			.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	private UserDao userDao;
 
@@ -33,6 +38,7 @@ public class UserServiceImpl implements UserService {
 		String kaptchaCode = param.getKaptchaCode();
 		String kaptchaValue = param.getKaptchaValue();
 		if (!kaptchaValue.equals(kaptchaCode)) {
+			logger.info("验证码输入不正确，kaptchaCode={}，kaptchaCode={}", new Object[]{kaptchaCode, kaptchaValue});
 			throw new ServiceException("验证码输入不正确");
 		}
 		
@@ -40,8 +46,15 @@ public class UserServiceImpl implements UserService {
 		try {
 			PropertyUtils.copyProperties(user, param);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("User属性复制出错");
 		}
-		save(user);
+		user.setAccount(user.getUsername());
+		try {
+			save(user);
+		} catch (Exception e) {
+			logger.error("用户注册失败", e);
+			throw new ServiceException("用户注册失败");
+		}
+		
 	}
 }

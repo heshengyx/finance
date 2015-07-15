@@ -1,1 +1,1 @@
-mvn install:install-file -DgroupId=com.google.code.kaptcha -DartifactId=kaptcha -Dversion=2.3.2 -Dfile=D:\work\git-work\finance\src\main\webapp\lib\kaptcha-2.3.2.jar -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.google.code.kaptcha -DartifactId=kaptcha -Dversion=2.3.2 -Dfile=E:\work\git-work\finance\src\main\webapp\lib\kaptcha-2.3.2.jar -Dpackaging=jar -DgeneratePom=true

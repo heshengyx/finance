@@ -36,8 +36,6 @@ public class LoginController extends BaseController {
 			// token.setRememberMe(true);
 			subject.login(token);
 			logger.info("用户登录成功");
-			jMessage.setCode(JsonMessage.SUCCESS_CODE);
-			jMessage.setData("user");
 		} catch (Exception e) {
 			logger.error("用户登录失败", e);
 			jMessage.setCode(JsonMessage.ERROR_CODE);

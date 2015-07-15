@@ -44,7 +44,7 @@ public class RegisterController extends BaseController {
 		} catch (Exception e) {
 			logger.error("用户注册失败", e);
 			jMessage.setCode(JsonMessage.ERROR_CODE);
-			jMessage.setMessage("用户注册失败");
+			jMessage.setMessage(e.getMessage());
 		}
 		return jMessage;
 	}
