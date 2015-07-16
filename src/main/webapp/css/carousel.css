@@ -18,6 +18,8 @@ body {
   right: 0;
   left: 0;
   z-index: 20;
+  margin-top: 0px;
+  border: 1px solid red;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -40,8 +42,10 @@ body {
 /* Carousel base class */
 .carousel {
   /* height: 500px; */
-  height: 410px;
+  height: 356px;
   margin-bottom: 60px;
+  margin-top: 100px;
+  
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -51,16 +55,16 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel .item {
   /* height: 500px; */
-  height: 410px;
+  height: 356px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
   position: absolute;
-  /* top: 0; */
-  top: 100px;
+  /* top: 0; 
+  top: 100px;*/
   left: 0;
   min-width: 100%;
-  /* height: 500px; */
+  height: 356px;
 }
 
 

@@ -18,7 +18,7 @@
     <link href="${ctx}/css/style.css" rel="stylesheet">
     <style type="text/css">
     body {
-	  padding-top: 85px;	
+	  padding-top: 0px;
 	}
     .navbar-inverse {
       height: 35px;
@@ -57,8 +57,8 @@
   </head>
 
   <body>
-  
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-static-top">
       <div class="navbar-inverse">
         <div class="container">
           <div class="container-header">
@@ -87,6 +87,7 @@
       	</div>
       </div>
     </nav>
+    </div>
 
     <sitemesh:write property="body" />
 

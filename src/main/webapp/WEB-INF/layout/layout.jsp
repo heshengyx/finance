@@ -34,7 +34,7 @@
       <div class="container">
       	<div class="container-header">
       	<div class="row">
-      		<div class="col-md-8"><h3>人人贷</h3></div>
+      		<div class="col-md-8"><h4><img src="${ctx}/images/logo.png" /></h4></div>
       		<div class="col-md-4 text-right"><h3><sitemesh:write property="navTitle" /></h3></div>
       	</div>
       	</div>
