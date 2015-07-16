@@ -1,5 +1,6 @@
 body {
-  background-color: #FFFFFF;
+  font-family: "Microsoft YaHei","Lucida Sans Unicode","Myriad Pro","Hiragino Sans GB","Heiti SC",Verdana,simsun;
+  background-color: #F2F2F2;
 }
 .navbar-static-top {
   margin-bottom: 19px;
@@ -12,6 +13,7 @@ body {
   width: 935px;
   margin: 30px auto;
   border: 1px solid #dddddd;
+  background-color: #FFFFFF;
 }
 .form-content {
   /*margin-left: -26px;
@@ -19,6 +21,7 @@ body {
   margin-top: 20px;
   margin-right: 25px;
 }
-.message-warning {
-  color:red;
+.navbar-default {
+  background-color: #FFFFFF;
+  border: 1px solid #dddddd;
 }

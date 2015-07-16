@@ -16,6 +16,11 @@
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/css/bootstrapValidator.min.css" rel="stylesheet">
     <link href="${ctx}/css/style.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+	  padding-top: 50px;	
+	}
+    </style>
     <!-- js -->
     <script src="${ctx}/js/jquery.min.js" ></script>
     <script src="${ctx}/js/bootstrap.min.js"></script>
@@ -25,7 +30,7 @@
 
   <body>
 
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
       	<div class="container-header">
       	<div class="row">

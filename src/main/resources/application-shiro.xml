@@ -42,7 +42,7 @@
 	            /js/** = anon
 	            /images/** = anon
 	            
-	            /user/** = anon  
+	            /user/** = authc  
 			</value>  
 		</property>  
 		<!-- 
