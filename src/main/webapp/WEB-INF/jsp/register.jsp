@@ -4,53 +4,11 @@
 <html lang="zh-CN">
 <head>
 	<title>P2P网-用户注册</title>
-	<script>
-	$(document).ready(function() {
-		$('#kaptchaImage').click(function() {
-			$(this).hide().attr('src', '${ctx}/kaptcha/image?' + Math.floor(Math.random()*100) ).fadeIn();
-		});
-		$('#registerForm').bootstrapValidator({
-			submitHandler: function(validator, form, submitButton) {
-				$.post(form.attr('action'), form.serialize(), function(result) {
-					if (result.code == '500') {
-						$('#message').text(result.message);
-						validator.disableSubmitButtons(false);
-					}
-			    }, 'json');
-            },
-			fields: {
-				username: {
-                    validators: {
-                        notEmpty: {
-                            message: '用户名不能为空'
-                        }
-                    }
-                },
-                phone: {
-                    validators: {
-                        notEmpty: {
-                            message: '手机号码不能为空'
-                        }
-                    }
-                },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: '登录密码不能为空'
-                        }
-                    }
-                },
-                passwordConfirm: {
-                    validators: {
-                        notEmpty: {
-                            message: '确认密码不能为空'
-                        }
-                    }
-                }
-			}
-        });
-	});
-	</script>		
+	<style type="text/css">
+	.col-sm-4 img {
+	  margin-left: 23px;
+	}
+	</style>		
 </head>
 
 <body>
@@ -98,14 +56,14 @@
 				 <div class="col-sm-3">
 				   <input type="text" class="form-control" name="kaptchaCode" id="inputKaptchaCode" placeholder="输入验证码">
 				 </div>
-				 <div class="col-sm-3 text-right">
-				   <img src="${ctx}/kaptcha/image" id="kaptchaImage" />  
+				 <div class="col-sm-4">
+				   <img src="${ctx}/kaptcha/image" id="kaptchaImage" />&nbsp;<a href="#"><span class="glyphicon glyphicon-refresh"></span></a>
 				 </div>
 			  </div>
 			  <br/>
 			  <div class="form-group">
-			    <div class="col-sm-offset-3 col-sm-6">
-			      <button type="submit" class="btn btn-primary">立即注册</button>
+			    <div class="col-sm-offset-3 col-sm-3">
+			      <button type="submit" class="btn btn-primary btn-block">立即注册</button>
 			    </div>
 			  </div>
 		    </form>
@@ -119,5 +77,54 @@
 		  </div>
 		</div>
 	</div>
+	<jscript>
+	<script>
+	$(document).ready(function() {
+		$('#kaptchaImage').click(function() {
+			$(this).hide().attr('src', '${ctx}/kaptcha/image?' + Math.floor(Math.random()*100) ).fadeIn();
+		});
+		$('#registerForm').bootstrapValidator({
+			submitHandler: function(validator, form, submitButton) {
+				$.post(form.attr('action'), form.serialize(), function(result) {
+					if (result.code == '500') {
+						$('#message').text(result.message);
+						validator.disableSubmitButtons(false);
+					}
+			    }, 'json');
+            },
+			fields: {
+				username: {
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        }
+                    }
+                },
+                phone: {
+                    validators: {
+                        notEmpty: {
+                            message: '手机号码不能为空'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '登录密码不能为空'
+                        }
+                    }
+                },
+                passwordConfirm: {
+                    validators: {
+                        notEmpty: {
+                            message: '确认密码不能为空'
+                        }
+                    }
+                }
+			}
+        });
+	});
+	</script>
+	</jscript>
 </body>
 </html>

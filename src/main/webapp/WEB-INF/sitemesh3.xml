@@ -10,9 +10,12 @@
 	<mapping path="/images/*" exclude="true"/>
 	<mapping path="/css/*" exclude="true"/>
 	<mapping path="/js/*" exclude="true"/>
+	<mapping path="/fonts/*" exclude="true"/>
+	<mapping path="/locales/*" exclude="true"/>
 	
 	<!-- 自定义 tag 规则 -->
 	<content-processor>
 		<tag-rule-bundle class="com.myself.finance.tag.NavTitleTagRuleBundle" />
+		<tag-rule-bundle class="com.myself.finance.tag.JscriptTagRuleBundle" />
 	</content-processor>
 </sitemesh>

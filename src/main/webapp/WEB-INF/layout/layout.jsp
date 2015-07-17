@@ -16,21 +16,11 @@
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/css/bootstrapValidator.min.css" rel="stylesheet">
     <link href="${ctx}/css/style.css" rel="stylesheet">
-    <style type="text/css">
-    body {
-	  padding-top: 50px;	
-	}
-    </style>
-    <!-- js -->
-    <script src="${ctx}/js/jquery.min.js" ></script>
-    <script src="${ctx}/js/bootstrap.min.js"></script>
-    <script src="${ctx}/js/bootstrapValidator.min.js"></script>
     <sitemesh:write property="head" />
   </head>
 
   <body>
-
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
       	<div class="container-header">
       	<div class="row">
@@ -48,8 +38,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster
-    <script src="${ctx}/js/jquery.min.js"></script>
+    -->
+    <!-- js -->
+    <script src="${ctx}/js/jquery.min.js" ></script>
     <script src="${ctx}/js/bootstrap.min.js"></script>
-     -->
+    <script src="${ctx}/js/bootstrapValidator.min.js"></script>
+    <sitemesh:write property="jscript" />
   </body>
 </html>

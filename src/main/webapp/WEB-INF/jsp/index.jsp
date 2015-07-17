@@ -5,9 +5,38 @@
 <head>
 	<title>P2P网-首页</title>
 	<link href="${ctx}/css/carousel.css" rel="stylesheet">
+	<style type="text/css">
+	.box-wrapper {
+	  position: absolute;
+	  top: 150px;
+	  right: 150px;
+	  z-index: 30;
+	}
+	.box-wrapper .panel {
+	  width: 350px;
+	  height: 250px;
+	}
+	.panel-body h1 {
+	  font-size: 60px;
+	  color: #2EA7E0;
+	}
+	</style>
 </head>
 
 <body>
+	
+	<div class="box-wrapper highlight">
+	  <div class="panel panel-info">
+	    <div class="panel-heading">
+     	  <h3 class="panel-title">人人贷成交额超过（元）</h3>
+  	  	</div>
+	    <div class="panel-body text-center">
+	      <h1>93亿</h1>
+	      <p>已为用户赚取71,883万元，累计交易745万人次</p>
+	      <a class="btn btn-primary btn-lg btn-block" href="${ctx}/register" role="button">注册领红包</a>
+	    </div>
+	  </div>
+	</div>
 	<!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
