@@ -57,7 +57,7 @@
 				   <input type="text" class="form-control" name="kaptchaCode" id="inputKaptchaCode" placeholder="输入验证码">
 				 </div>
 				 <div class="col-sm-4">
-				   <img src="${ctx}/kaptcha/image" id="kaptchaImage" />&nbsp;<a href="#"><span class="glyphicon glyphicon-refresh"></span></a>
+				   <img src="${ctx}/kaptcha/image" id="kaptchaImage" />&nbsp;<a href="#" id="kaptchaImageRefresh" title="刷新验证码"><span class="glyphicon glyphicon-refresh"></span></a>
 				 </div>
 			  </div>
 			  <br/>
@@ -80,8 +80,8 @@
 	<jscript>
 	<script>
 	$(document).ready(function() {
-		$('#kaptchaImage').click(function() {
-			$(this).hide().attr('src', '${ctx}/kaptcha/image?' + Math.floor(Math.random()*100) ).fadeIn();
+		$('#kaptchaImageRefresh').click(function() {
+			$('#kaptchaImage').hide().attr('src', '${ctx}/kaptcha/image?' + Math.floor(Math.random()*100) ).fadeIn();
 		});
 		$('#registerForm').bootstrapValidator({
 			submitHandler: function(validator, form, submitButton) {
