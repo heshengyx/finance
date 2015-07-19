@@ -17,11 +17,17 @@
 			  <form id="loginForm" action="${ctx}/login/refer" method="post">
 		        <div class="form-group">
 				  <label for="inputUsername">用户名</label>
-				  <input type="text" class="form-control" name="account" id="inputUsername" placeholder="手机号/邮箱">
+				  <div class="input-group">
+				    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+				    <input type="text" class="form-control" name="account" id="inputUsername" placeholder="手机号/邮箱">
+				  </div>
 				</div>
 				<div class="form-group">
 				  <label for="inputPassword">密码</label>
-				  <input type="password" class="form-control" name="password" id="inputPassword" placeholder="密码">
+				  <div class="input-group">
+				    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+				    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="密码">
+				  </div>
 				</div>
 		        <div class="checkbox">
 		          <label>
