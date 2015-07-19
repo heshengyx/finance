@@ -16,25 +16,58 @@
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/css/bootstrapValidator.min.css" rel="stylesheet">
     <link href="${ctx}/css/style.css" rel="stylesheet">
+    <style type="text/css">
+    .container-navbar {
+      height: 70px;
+      background-color: #ffffff;
+    }
+    .navbar-default {
+      background-color: #ffffff;
+    }
+    .navbar-header {
+      margin-top: 10px;
+    }
+    .navbar-brand {
+      padding: 0px;
+    }
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+	.navbar-wrapper {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  left: 0;
+	  z-index: 50;
+	}
+	/* Flip around the padding for proper display in narrow viewports */
+	.navbar-wrapper > .container {
+	  padding-right: 0;
+	  padding-left: 0;
+	}
+    </style>
     <sitemesh:write property="head" />
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-      	<div class="container-header">
-      	<div class="row">
-      		<div class="col-md-8"><h4><img src="${ctx}/images/logo.png" /></h4></div>
-      		<div class="col-md-4 text-right"><h3><sitemesh:write property="navTitle" /></h3></div>
-      	</div>
-      	</div>
-      </div>
-    </nav>
+  
+    <div class="container-navbar">
+	<div class="navbar-wrapper">
+	<div class="container">
+	<nav class="navbar-default" style="border:1px solid red">
+	  <div class="container-fluid">
+	    <div class="navbar-header" style="border:1px solid red">
+	      <a class="navbar-brand" href="${ctx}/index">
+	        <img alt="Brand" src="${ctx}/images/logo.png">
+	      </a>
+	    </div>
+	    <h2 class="navbar-text navbar-right"><sitemesh:write property="navTitle" /></h2>
+	  </div>
+	</nav>
+	</div>
+	</div>
+	</div>
 
-    <div class="container">
-      <sitemesh:write property="body" />
-    </div>
-
+    <sitemesh:write property="body" />
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster

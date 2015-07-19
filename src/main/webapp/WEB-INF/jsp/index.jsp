@@ -6,10 +6,21 @@
 	<title>P2P网-首页</title>
 	<link href="${ctx}/css/carousel.css" rel="stylesheet">
 	<style type="text/css">
+	.marketing .col-md-4 {
+	  margin-bottom: 20px;
+	  text-align: center;
+	}
+	.marketing h2 {
+	  font-weight: normal;
+	}
+	.marketing .col-md-4 p {
+	  margin-right: 10px;
+	  margin-left: 10px;
+	}
 	.box-wrapper {
 	  position: absolute;
 	  top: 150px;
-	  right: 150px;
+	  right: 10%;
 	  z-index: 30;
 	}
 	.box-wrapper .panel {

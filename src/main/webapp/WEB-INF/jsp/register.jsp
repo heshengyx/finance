@@ -13,7 +13,7 @@
 
 <body>
 	<navTitle>注册</navTitle>
-	<div class="container-content">
+	<div class="container container-content">
 		<div class="row">
 		  <div class="col-md-8">
 		  	<div class="form-content">
