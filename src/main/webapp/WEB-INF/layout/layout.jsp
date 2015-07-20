@@ -40,8 +40,13 @@
 	}
 	/* Flip around the padding for proper display in narrow viewports */
 	.navbar-wrapper > .container {
-	  padding-right: 0;
+	  /* padding-right: 0; */
 	  padding-left: 0;
+	}
+	@media (min-width: 970px) {
+	  .navbar-wrapper > .container {
+	    width: 940px;
+	  }
 	}
     </style>
     <sitemesh:write property="head" />
@@ -52,20 +57,20 @@
     <div class="container-navbar">
 	<div class="navbar-wrapper">
 	<div class="container">
-	<nav class="navbar-default" style="border:1px solid red">
+	<nav class="navbar-default">
 	  <div class="container-fluid">
-	    <div class="navbar-header" style="border:1px solid red">
+	    <div class="navbar-header">
 	      <a class="navbar-brand" href="${ctx}/index">
 	        <img alt="Brand" src="${ctx}/images/logo.png">
 	      </a>
 	    </div>
-	    <h2 class="navbar-text navbar-right"><sitemesh:write property="navTitle" /></h2>
+	    <h2 class="navbar-text navbar-right hidden-xs"><sitemesh:write property="navTitle" /></h2>
 	  </div>
 	</nav>
 	</div>
 	</div>
 	</div>
-
+	
     <sitemesh:write property="body" />
     
     <!-- Bootstrap core JavaScript

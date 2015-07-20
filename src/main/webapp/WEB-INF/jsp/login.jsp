@@ -8,9 +8,10 @@
 
 <body>
 	<navTitle>登录</navTitle>
-	<div class="container-content">
+	<div class="container">
+	<div class="container container-content">
 		<div class="row">
-		  <div class="col-md-8"><img src="${ctx}/images/login.png" /></div>
+		  <div class="col-md-8 text-center hidden-xs"><img src="${ctx}/images/login.png" /></div>
 		  <div class="col-md-4">
 		  <div class="form-content">
 		  	  <div id="message" class="btn-danger"></div>
@@ -46,6 +47,7 @@
 	      </div>
 		  </div>
 		</div>
+	</div>
 	</div>
 	<jscript>
 	<script>

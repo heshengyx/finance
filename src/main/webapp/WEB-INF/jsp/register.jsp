@@ -13,7 +13,8 @@
 
 <body>
 	<navTitle>注册</navTitle>
-	<div class="container container-content">
+	<div class="container">
+	  <div class="container container-content">
 		<div class="row">
 		  <div class="col-md-8">
 		  	<div class="form-content">
@@ -68,7 +69,7 @@
 				 <div class="col-sm-4">
 				   <div class="input-group">
 				     <span class="input-group-addon"><span class="glyphicon glyphicon-check"></span></span>
-				     <input type="text" class="form-control" name="kaptchaCode" id="inputKaptchaCode" placeholder="输入验证码">
+				     <input type="text" class="form-control" name="kaptchaCode" id="inputKaptchaCode" placeholder="输入验证码">			     
 				   </div>
 				 </div>
 				 <div class="col-sm-4">
@@ -91,6 +92,7 @@
 		    </div>
 		  </div>
 		</div>
+	  </div>
 	</div>
 	<jscript>
 	<script>

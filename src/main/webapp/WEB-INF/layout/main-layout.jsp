@@ -55,19 +55,13 @@
 	.navbar-wrapper {
 	  margin-top: 20px;
 	}
-	.navbar-wrapper .container {
-	  padding-right: 15px;
-	  padding-left: 15px;
-	}
-	@media (min-width: 768px) {
-	  /* Navbar positioning foo */
-	  /* .navbar-wrapper {
-	    margin-top: 20px;
+	@media (min-width: 970px) {
+	  .navbar-wrapper > .container {
+	    width: 940px;
 	  }
-	  .navbar-wrapper .container {
-	    padding-right: 15px;
-	    padding-left: 15px;
-	  } */
+	  .container-inverse > .container {
+	    width: 940px;
+	  }
 	}
     </style>
     <sitemesh:write property="head" />
@@ -85,7 +79,6 @@
     <div class="container-inverse">
     <div class="container">
     <nav class="navbar-inverse">
-	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-top" aria-expanded="false">
 	      </button>
@@ -98,7 +91,6 @@
 	      <li><a href="#"><h5>帮助中心</h5></a></li>
 	    </ul>
 	    </div>
-	  </div>
 	</nav>
 	</div>
 	</div>
@@ -106,15 +98,15 @@
 	<div class="container-navbar">
 	<div class="navbar-wrapper">
 	<div class="container">
-	<nav class="navbar-default" style="border:1px solid red">
+	<nav class="navbar-default">
 	  <div class="container-fluid">
-	    <div class="navbar-header" style="border:1px solid red">
+	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="${ctx}/index" style="border:1px solid red">
+	      <a class="navbar-brand" href="${ctx}/index">
 	        <img alt="Brand" src="${ctx}/images/logo.png">
 	      </a>
 	    </div>
@@ -124,7 +116,7 @@
                 <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">首页</a></li>
                 <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要投资</a></li>
                 <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要理财</a></li>
-                <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">新手指引</a></li>
+                <li><a class="btn btn-link btn-lg" href="#" role="button">新手指引</a></li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -142,49 +134,11 @@
 	  </div>
 	</nav>
 	
-	<!-- <div class="clearfix"></div> -->
-	
+	<!-- <div class="clearfix"></div> -->	
 	</div>
 	</div>
 	</div>
 
-    <%-- <nav class="navbar navbar-default navbar-static-top" style="border:1px solid red">
-      <div class="navbar-inverse">
-        <div class="container">
-          <div class="container-header">
-          <div class="row">
-            <div class="col-md-8"><h5>客服电话：400-0093-666&nbsp;&nbsp;工作时间：9:00-17:00</h5></div>
-            <div class="col-md-4">
-              <div class="col-md-4"><a class="btn btn-link" href="${ctx}/register" role="button">快速注册</a></div>
-              <div class="col-md-4"><a class="btn btn-link" href="${ctx}/login" role="button">立即登录</a></div>
-              <div class="col-md-4"><a class="btn btn-link" href="#" role="button">帮助中心</a></div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="container">
-      	<div class="container-header">
-      	<div class="row">
-      		<div class="col-md-6"><h4><img src="${ctx}/images/logo.png" /></h4></div>
-      		<div class="col-md-6">
-      		  <!-- <ul class="nav nav-pills">
-			    <li role="presentation" class="active"><a href="#">首页</a></li>
-			    <li role="presentation"><a href="#">我要投资</a></li>
-			    <li role="presentation"><a href="#">我要理财</a></li>
-			    <li role="presentation"><a href="#">我的账户</a></li>
-			  </ul> -->
-      		  <div class="col-md-3"><a class="btn btn-primary btn-lg" href="${ctx}/register" role="button">首页</a></div>
-              <div class="col-md-3"><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要投资</a></div>
-              <div class="col-md-3"><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要理财</a></div>
-              <div class="col-md-3"><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我的账户</a></div>
-      		</div>
-      	</div>
-      	</div>
-      </div>
-    </nav> --%>
-    
     <sitemesh:write property="body" />
 	
     <!-- Bootstrap core JavaScript
