@@ -9,6 +9,7 @@
 <body>
 	<navTitle>登录</navTitle>
 	<div class="container">
+	<div class="container-nav"></div>
 	<div class="container container-content">
 		<div class="row">
 		  <div class="col-md-8 text-center hidden-xs"><img src="${ctx}/images/login.png" /></div>

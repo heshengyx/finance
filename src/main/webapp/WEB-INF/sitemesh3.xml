@@ -2,6 +2,7 @@
 <sitemesh>
 	<!-- 对不同的路径，启用不同的装饰器 -->
 	<mapping path="/index" decorator="/WEB-INF/layout/main-layout.jsp"/>
+	<mapping path="/lend" decorator="/WEB-INF/layout/main-layout.jsp"/>
 	
 	<mapping path="/login" decorator="/WEB-INF/layout/layout.jsp"/>
 	<mapping path="/register" decorator="/WEB-INF/layout/layout.jsp"/>

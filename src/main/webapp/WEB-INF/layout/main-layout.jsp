@@ -114,7 +114,7 @@
 	    <div class="collapse navbar-collapse" id="bs-navbar-collapse">
 	      <ul class="nav navbar-nav navbar-right">
                 <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">首页</a></li>
-                <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要投资</a></li>
+                <li><a class="btn btn-link btn-lg" href="${ctx}/lend" role="button">我要投资</a></li>
                 <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要理财</a></li>
                 <li><a class="btn btn-link btn-lg" href="#" role="button">新手指引</a></li>
                 <!-- <li class="dropdown">

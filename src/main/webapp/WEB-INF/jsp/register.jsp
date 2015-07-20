@@ -14,6 +14,7 @@
 <body>
 	<navTitle>注册</navTitle>
 	<div class="container">
+	<div class="container-nav"></div>
 	  <div class="container container-content">
 		<div class="row">
 		  <div class="col-md-8">
