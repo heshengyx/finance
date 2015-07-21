@@ -20,6 +20,7 @@
 	  height: 5px;
 	}
 	</style>
+	<link href="${ctx}/css/dataTables.bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
@@ -80,6 +81,7 @@
 		  </div>
 		  <div class="col-md-4">
 		  	<h4>新手引导</h4>
+		  	<div class="row-height"></div>
 		    <div>什么是信用等级？</div>
 		    <div class="row-height"></div>
 	    	<div>什么是信用认证标？</div>
@@ -92,8 +94,184 @@
 	  </div>
 	  <br>
 	  <div class="container container-content">
-	    <div>erwerwe</div>
+	  	<table class="table" id="table-list">
+	  	  <caption><h4>投资列表</h4></caption>
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>借款标题</th>
+	          <th>信用等级</th>
+	          <th>年利率</th>
+	          <th>金额</th>
+	          <th>期限</th>
+	          <th>进度</th>
+	        </tr>
+	      </thead>
+	      <tbody></tbody>
+	  	</table>
+	    <table class="table">
+	      <caption><h4>投资列表</h4></caption>
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>借款标题</th>
+	          <th>信用等级</th>
+	          <th>年利率</th>
+	          <th>金额</th>
+	          <th>期限</th>
+	          <th>进度</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <tr>
+	          <th scope="row">1</th>
+	          <td>Mark</td>
+	          <td><span class="badge">A</span></td>
+	          <td>@mdo</td>
+	          <td>@mdo</td>
+	          <td>@mdo</td>
+	          <td><button type="button" class="btn btn-primary">投标</button></td>
+	        </tr>
+	        <tr>
+	          <th scope="row">2</th>
+	          <td>Jacob</td>
+	          <td>Thornton</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">3</th>
+	          <td>Larry</td>
+	          <td>the Bird</td>
+	          <td>@twitter</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">2</th>
+	          <td>Jacob</td>
+	          <td>Thornton</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">3</th>
+	          <td>Larry</td>
+	          <td>the Bird</td>
+	          <td>@twitter</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">2</th>
+	          <td>Jacob</td>
+	          <td>Thornton</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">3</th>
+	          <td>Larry</td>
+	          <td>the Bird</td>
+	          <td>@twitter</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">2</th>
+	          <td>Jacob</td>
+	          <td>Thornton</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">3</th>
+	          <td>Larry</td>
+	          <td>the Bird</td>
+	          <td>@twitter</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">2</th>
+	          <td>Jacob</td>
+	          <td>Thornton</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	        <tr>
+	          <th scope="row">3</th>
+	          <td>Larry</td>
+	          <td>the Bird</td>
+	          <td>@twitter</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	          <td>@fat</td>
+	        </tr>
+	      </tbody>
+	    </table>
 	  </div>
 	</div>
+	<jscript>
+	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
+    <script src="${ctx}/js/dataTables.bootstrap.js"></script>
+	<script>
+	var table;
+	$(document).ready(function() {
+		table = $('#table-list').DataTable({
+    		"language": {
+                "lengthMenu": "每页 _MENU_ 条记录",
+                "zeroRecords": "没有找到记录",
+                "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                "infoEmpty": "无记录",
+                "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                "search": "搜索",
+                "paginate": {
+			         "first":    "第一页",
+			         "previous": "上一页 ",
+			         "next":     "下一页 ",
+			         "last":     "最后一页 "
+			     }
+            },
+            //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
+            "dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-2'l><'col-xs-8'p>><'clear'>>",
+            //"dom": '<"toolbar">rt<"bottom"ilp<"clear">>',
+    		"pagingType":  "full_numbers",
+    		//"scrollX": "100%",
+    		//"scrollXInner": "100%",
+    		"filter": true, 
+    		"processing": true,
+            "serverSide": true,
+            "ajax": {
+				"url": "${ctx}/lend/list",
+				"type": "POST"
+			},
+			"columns": [
+				{ "data": null },
+	            { "data": "name" },
+	            { "data": null },
+	            { "data": null },
+	            { "data": null },
+	            { "data": null },
+	            { "data": null }
+	        ]
+    	});
+	});
+	</script>
+	</jscript>
 </body>
 </html>

@@ -148,5 +148,6 @@
     <!-- js -->
     <script src="${ctx}/js/jquery.min.js" ></script>
     <script src="${ctx}/js/bootstrap.min.js"></script>
+    <sitemesh:write property="jscript" />
   </body>
 </html>
