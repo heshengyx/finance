@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myself.common.message.JsonResult;
-import com.myself.finance.entity.Lend;
+import com.myself.finance.entity.Product;
 import com.myself.finance.page.Page;
-import com.myself.finance.param.LendQueryParam;
+import com.myself.finance.param.ProductQueryParam;
 
 @Controller
 @RequestMapping("/lend")
@@ -28,22 +28,22 @@ public class LendController extends BaseController {
 	
 	@RequestMapping("/list")
 	@ResponseBody
-	public Object list(LendQueryParam param) {
-		Page<LendQueryParam> pageResult = new Page<LendQueryParam>();
+	public Object list(ProductQueryParam param) {
+		Page<ProductQueryParam> pageResult = new Page<ProductQueryParam>();
 		pageResult.setPage(param.getPage());
 		pageResult.setRows(param.getLength());
 
 		pageResult.setEntity(param);
 		
-		List<Lend> datas = new ArrayList<Lend>();
-		Lend lend = new Lend();
-		lend.setName("Jack");
-		datas.add(lend);
-		lend = new Lend();
-		lend.setName("Pack");
-		datas.add(lend);
+		List<Product> datas = new ArrayList<Product>();
+		Product product = new Product();
+		product.setName("Jack");
+		datas.add(product);
+		product = new Product();
+		product.setName("Pack");
+		datas.add(product);
 		
-		JsonResult<Lend> jResult = new JsonResult<Lend>();
+		JsonResult<Product> jResult = new JsonResult<Product>();
 		jResult.setDraw(param.getDraw());
 		jResult.setRecordsTotal(pageResult.getTotalRecord());
 		jResult.setRecordsFiltered(pageResult.getTotalRecord());
