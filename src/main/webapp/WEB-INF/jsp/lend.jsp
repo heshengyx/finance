@@ -19,8 +19,11 @@
 	.row-height {
 	  height: 5px;
 	}
+	.dataTables_wrapper .dataTables_length {
+	  padding-top: 0.755em;
+	}
 	</style>
-	<link href="${ctx}/css/dataTables.bootstrap.css" rel="stylesheet">
+	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -98,141 +101,26 @@
 	  	  <caption><h4>投资列表</h4></caption>
 	      <thead>
 	        <tr>
-	          <th>#</th>
 	          <th>借款标题</th>
 	          <th>信用等级</th>
 	          <th>年利率</th>
 	          <th>金额</th>
 	          <th>期限</th>
 	          <th>进度</th>
+	          <th></th>
 	        </tr>
 	      </thead>
 	      <tbody></tbody>
 	  	</table>
-	    <table class="table">
-	      <caption><h4>投资列表</h4></caption>
-	      <thead>
-	        <tr>
-	          <th>#</th>
-	          <th>借款标题</th>
-	          <th>信用等级</th>
-	          <th>年利率</th>
-	          <th>金额</th>
-	          <th>期限</th>
-	          <th>进度</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-	        <tr>
-	          <th scope="row">1</th>
-	          <td>Mark</td>
-	          <td><span class="badge">A</span></td>
-	          <td>@mdo</td>
-	          <td>@mdo</td>
-	          <td>@mdo</td>
-	          <td><button type="button" class="btn btn-primary">投标</button></td>
-	        </tr>
-	        <tr>
-	          <th scope="row">2</th>
-	          <td>Jacob</td>
-	          <td>Thornton</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">3</th>
-	          <td>Larry</td>
-	          <td>the Bird</td>
-	          <td>@twitter</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">2</th>
-	          <td>Jacob</td>
-	          <td>Thornton</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">3</th>
-	          <td>Larry</td>
-	          <td>the Bird</td>
-	          <td>@twitter</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">2</th>
-	          <td>Jacob</td>
-	          <td>Thornton</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">3</th>
-	          <td>Larry</td>
-	          <td>the Bird</td>
-	          <td>@twitter</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">2</th>
-	          <td>Jacob</td>
-	          <td>Thornton</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">3</th>
-	          <td>Larry</td>
-	          <td>the Bird</td>
-	          <td>@twitter</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">2</th>
-	          <td>Jacob</td>
-	          <td>Thornton</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	        <tr>
-	          <th scope="row">3</th>
-	          <td>Larry</td>
-	          <td>the Bird</td>
-	          <td>@twitter</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	          <td>@fat</td>
-	        </tr>
-	      </tbody>
-	    </table>
+	  	<div class="row-height"></div>
 	  </div>
 	</div>
 	<jscript>
 	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
-    <script src="${ctx}/js/dataTables.bootstrap.js"></script>
 	<script>
 	var table;
 	$(document).ready(function() {
-		table = $('#table-list').DataTable({
+		table = $('#table-list').dataTable({
     		"language": {
                 "lengthMenu": "每页 _MENU_ 条记录",
                 "zeroRecords": "没有找到记录",
@@ -248,9 +136,9 @@
 			     }
             },
             //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
-            "dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-2'l><'col-xs-8'p>><'clear'>>",
+            "dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-10'p>><'clear'>>",
             //"dom": '<"toolbar">rt<"bottom"ilp<"clear">>',
-    		"pagingType":  "full_numbers",
+    		//"pagingType":  "full_numbers",
     		//"scrollX": "100%",
     		//"scrollXInner": "100%",
     		"filter": true, 
@@ -260,16 +148,58 @@
 				"url": "${ctx}/lend/list",
 				"type": "POST"
 			},
+			"order": [[ 0, "desc" ]],
+			"columnDefs": [
+				{
+					"render": function(data, type, row) {
+				        	return "<a href=\"${ctx}/lend/detail/" + data.id + "\">" + data.title + "</a>";
+				    },
+				    "targets": [0]
+				},
+			    {
+			    	"render": function(data, type, row) {
+			            	return "<span class=\"badge\">" + data.level + "</span>";
+			        },
+			        "targets": [1]
+			    },
+			    {
+			    	"render": function(data, type, row) {
+			            	return "<span class=\"badge\">80%</span>";
+			        },
+			        "targets": [5]
+			    },
+			    {
+	            	"searchable": false,
+			    	"orderable": false,
+	            	"render": function(data, type, row) {
+		                var content = "";
+		                content += "<button type=\"button\" class=\"btn btn-primary\">投标</button>";
+		            	return content;
+		            },
+		            "targets": [6]
+	            }
+			],
 			"columns": [
-				{ "data": null },
-	            { "data": "name" },
 	            { "data": null },
 	            { "data": null },
-	            { "data": null },
+	            { "data": "yearRate" },
+	            { "data": "money" },
+	            { "data": "term" },
 	            { "data": null },
 	            { "data": null }
 	        ]
     	});
+		/* $('#table-list tbody')
+        .on( 'mouseover', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+            if ( colIdx !== lastIdx ) {
+                $( table.cells().nodes() ).removeClass( 'highlight' );
+                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+            }
+        } )
+        .on( 'mouseleave', function () {
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+        } ); */
 	});
 	</script>
 	</jscript>

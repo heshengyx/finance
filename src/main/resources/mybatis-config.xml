@@ -10,6 +10,8 @@
 		<typeAlias type="com.myself.finance.entity.User" alias="user" />
 		<typeAlias type="com.myself.finance.entity.Role" alias="role" />
 		<typeAlias type="com.myself.finance.entity.Permission" alias="permission" />
+		
+		<typeAlias type="com.myself.finance.entity.Product" alias="product" />
 		<!-- [typeAlias] -->
 	</typeAliases>
 	

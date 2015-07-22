@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myself.finance.mapper.ProductMapper">
+	<resultMap type="product" id="productResult">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+<result column="NAME" property="name" jdbcType="VARCHAR" />
+<result column="STATUS" property="status" jdbcType="VARCHAR" />
+<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+<result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
+<result column="TITLE" property="title" jdbcType="VARCHAR" />
+<result column="LEVEL" property="level" jdbcType="VARCHAR" />
+<result column="YEAR_RATE" property="yearRate" jdbcType="NUMERIC" />
+<result column="MONEY" property="money" jdbcType="NUMERIC" />
+<result column="TERM" property="term" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getProduct" parameterType="String" resultMap="productResult">
+		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=NUMERIC}
+	</select>
+	<select id="list" parameterType="pageResult" resultMap="productResult">
+		SELECT * FROM PRODUCT 
+		<where>
+<if test="entity.name != null and entity.name != ''">
+	and NAME = #{entity.name}
+</if>
+<if test="entity.status != null and entity.status != ''">
+	and STATUS = #{entity.status}
+</if>
+<if test="entity.createTime != null and entity.createTime != ''">
+	and to_char(CREATE_TIME, 'YYYY-MM-DD') = #{entity.createTime}
+</if>
+</where> 
+		order by CREATE_TIME desc
+	</select>
+	
+	<insert id="save" parameterType="product" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO PRODUCT (ID, NAME, STATUS, CREATE_TIME, REMARKS)
+		VALUES (
+#{id, jdbcType=VARCHAR},
+#{name, jdbcType=VARCHAR},
+#{status, jdbcType=VARCHAR},
+#{createTime, jdbcType=TIMESTAMP},
+#{remarks, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update" parameterType="role">
+		update CLAZZ
+		<set>
+<if test="className != null">
+	CLASS_NAME = #{className, jdbcType=VARCHAR},
+</if>
+<if test="tableName != null">
+	TABLE_NAME = #{tableName, jdbcType=VARCHAR},
+</if>
+<if test="title != null">
+	TITLE = #{title, jdbcType=VARCHAR},
+</if>
+<if test="status != null">
+	STATUS = #{status, jdbcType=VARCHAR},
+</if>
+
+		</set>
+		where id = #{id, jdbcType=NUMERIC}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from CLAZZ where id = #{id, jdbcType=NUMERIC}
+	</delete>
+</mapper>
