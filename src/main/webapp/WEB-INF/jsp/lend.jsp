@@ -158,7 +158,7 @@
 				},
 			    {
 			    	"render": function(data, type, row) {
-			            	return "<span class=\"badge\">" + data.level + "</span>";
+			            	return "<span class=\"badge badge-primary\">" + data.level + "</span>";
 			        },
 			        "targets": [1]
 			    },
@@ -173,7 +173,7 @@
 			    	"orderable": false,
 	            	"render": function(data, type, row) {
 		                var content = "";
-		                content += "<button type=\"button\" class=\"btn btn-primary\">投标</button>";
+		                content += "<button type=\"button\" class=\"btn btn-primary btn-sm\">投标</button>";
 		            	return content;
 		            },
 		            "targets": [6]

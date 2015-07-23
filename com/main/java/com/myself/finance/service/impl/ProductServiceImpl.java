@@ -33,8 +33,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	public Product getData(Product param) {
-		// TODO Auto-generated method stub
-		return null;
+		return productDao.getData(param);
 	}
 
 	public List<Product> list(Page<ProductQueryParam> param) {

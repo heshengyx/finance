@@ -30,3 +30,19 @@ body {
     width: 940px;
   }
 }
+
+.badge-primary {
+  background-color: #337AB7;
+}
+.badge-success {
+  background-color: #5CB85C;
+}
+.badge-info {
+  background-color: #5BC0DE;
+}
+.badge-warning {
+  background-color: #F0AD4E;
+}
+.badge-danger {
+  background-color: #D9534F;
+}

@@ -52,7 +52,10 @@ public class LendController extends BaseController {
 	
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public String detail(@PathVariable String id, Model model) {
-		model.addAttribute("entityId", id);
+		Product param = new Product();
+		param.setId(id);
+		param = productService.getData(param);
+		model.addAttribute("product", param);
 		return "lendDetail";
 	}
 }

@@ -15,8 +15,8 @@
 <result column="TERM" property="term" jdbcType="VARCHAR" />
 	</resultMap>
 
-	<select id="getProduct" parameterType="String" resultMap="productResult">
-		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=NUMERIC}
+	<select id="getData" parameterType="String" resultMap="productResult">
+		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=VARCHAR}
 	</select>
 	<select id="list" parameterType="pageResult" resultMap="productResult">
 		SELECT * FROM PRODUCT 
