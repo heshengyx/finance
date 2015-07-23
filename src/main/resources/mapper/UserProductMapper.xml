@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myself.finance.mapper.UserProductMapper">
+	<resultMap type="com.myself.finance.data.UserProductData" id="userProductResult">
+<result column="NAME" property="userName" jdbcType="VARCHAR" />
+<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+<result column="MONEY" property="money" jdbcType="NUMERIC" />
+	</resultMap>
+
+	<select id="getData" parameterType="String" resultMap="productResult">
+		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=VARCHAR}
+	</select>
+	<select id="list" parameterType="pageResult" resultMap="userProductResult">
+		SELECT b.NAME, a.MONEY, a.CREATE_TIME FROM USER_PRODUCT a join USER b on a.USER_ID = b.ID
+		<where>
+<if test="entity.productId != null and entity.productId != ''">
+	and a.PRODUCT_ID = #{entity.productId}
+</if>
+</where> 
+		order by a.CREATE_TIME desc
+	</select>
+	
+	<insert id="save" parameterType="product" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO PRODUCT (ID, NAME, STATUS, CREATE_TIME, REMARKS)
+		VALUES (
+#{id, jdbcType=VARCHAR},
+#{name, jdbcType=VARCHAR},
+#{status, jdbcType=VARCHAR},
+#{createTime, jdbcType=TIMESTAMP},
+#{remarks, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update" parameterType="role">
+		update CLAZZ
+		<set>
+<if test="className != null">
+	CLASS_NAME = #{className, jdbcType=VARCHAR},
+</if>
+<if test="tableName != null">
+	TABLE_NAME = #{tableName, jdbcType=VARCHAR},
+</if>
+<if test="title != null">
+	TITLE = #{title, jdbcType=VARCHAR},
+</if>
+<if test="status != null">
+	STATUS = #{status, jdbcType=VARCHAR},
+</if>
+
+		</set>
+		where id = #{id, jdbcType=NUMERIC}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from CLAZZ where id = #{id, jdbcType=NUMERIC}
+	</delete>
+</mapper>
