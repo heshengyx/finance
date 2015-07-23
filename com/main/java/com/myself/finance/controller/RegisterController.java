@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myself.common.message.JsonMessage;
-import com.myself.finance.entity.User;
 import com.myself.finance.param.UserParam;
 import com.myself.finance.service.UserService;
 

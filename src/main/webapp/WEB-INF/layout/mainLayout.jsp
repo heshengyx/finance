@@ -115,7 +115,7 @@
 	      <ul class="nav navbar-nav navbar-right">
                 <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">首页</a></li>
                 <li><a class="btn btn-link btn-lg" href="${ctx}/lend" role="button">我要投资</a></li>
-                <li><a class="btn btn-link btn-lg" href="${ctx}/register" role="button">我要理财</a></li>
+                <li><a class="btn btn-link btn-lg" href="${ctx}/borrow" role="button">我要理财</a></li>
                 <li><a class="btn btn-link btn-lg" href="#" role="button">新手指引</a></li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>

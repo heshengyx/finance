@@ -13,8 +13,7 @@
 	  border-right: 1px solid #F2F2F2;
 	}
 	.container-content > .row {
-	  margin-top: 10px;
-	  margin-bottom: 10px;
+	  margin-bottom: 15px;
 	}
 	.row-height {
 	  height: 5px;
@@ -26,7 +25,7 @@
 	  border-bottom: 1px solid #F2F2F2;
 	}
 	.row-header > .col-md-4 {
-	  padding-top: 10px;
+	  padding-top: 30px;
 	}
 	.container-tabs {
 	  width: 940px;
@@ -54,7 +53,7 @@
 	  <div class="container container-content">
 	    <div class="row row-header">
 	      <div class="col-md-8">
-	        <h4>${product.title}</h4>
+	        <h3>${product.title}</h3>
 	      </div>
 	      <div class="col-md-4 text-right">借款协议（范本）</div>
 	    </div>
@@ -117,7 +116,7 @@
 	  </div>
 	  <div class="tab-content">
 	  <div class="container container-content container-tabs-content tab-pane active" id="detail">
-	    <h4>用户信息</h4>
+	    <h3>用户信息</h3>
 	    <div class="row">
 	      <div class="col-xs-1 col-xs-offset-1">昵    称</div>
 	      <div class="col-xs-2">Jack</div>
@@ -159,7 +158,7 @@
 	      <div class="col-xs-2">有</div>
 	    </div>
 	    <hr>
-	    <h4>信用档案</h4>
+	    <h3>信用档案</h3>
 	    <div class="row">
 	      <div class="col-xs-2 col-xs-offset-1">申请借款（笔）</div>
 	      <div class="col-xs-1">2</div>
@@ -185,7 +184,7 @@
 	      <div class="col-xs-2">0</div>
 	    </div>
 	    <hr>
-	    <h4>审核状态</h4>
+	    <h3>审核状态</h3>
 	    <table class="table">
 	      <thead>
 	       <tr class="info">
@@ -197,23 +196,23 @@
 	      <tbody>
 	       <tr class="active">
 	         <td>信用报告</td>
-	         <td><span class="badge badge-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
+	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
 	         <td>2015-07-22</td>
 	       </tr>
 	       <tr>
 	         <td>身份认证</td>
-	         <td><span class="badge badge-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
+	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
 	         <td>2014-08-11</td>
 	       </tr>
 	       <tr class="active">
 	         <td>学历认证</td>
-	         <td><span class="badge badge-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
+	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
 	         <td>2014-08-11</td>
 	       </tr>
 	      </tbody>
 	    </table>
 	    <hr>
-	    <h4>借款描述</h4>
+	    <h3>借款描述</h3>
 	    <div class="row">
 	      <div class="col-xs-11 col-xs-offset-1">此次借款用于房屋装修。本人在临颍县固厢乡北四村学校担任校长至今6年，每个月都有固定收入。本人长期定居在河南省漯河市临颍县，信用记录也很好，完全可以承担此次借款所产生的费用。</div>
 	    </div>

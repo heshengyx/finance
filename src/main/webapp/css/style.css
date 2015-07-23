@@ -1,6 +1,7 @@
 body {
   font-family: "Microsoft YaHei","Lucida Sans Unicode","Myriad Pro","Hiragino Sans GB","Heiti SC",Verdana,simsun;
   background-color: #F2F2F2;
+  overflow-y: scroll;
 }
 .container-content {
   margin: 0 auto;
@@ -45,4 +46,28 @@ body {
 }
 .badge-danger {
   background-color: #D9534F;
+}
+.badge-AA {
+  background-color: #1BB8E2;
+}
+.badge-A {
+  background-color: #BFDB39;
+}
+.badge-B {
+  background-color: #EDE71F;
+}
+.badge-C {
+  background-color: #FFC400;
+}
+.badge-D {
+  background-color: #FB5A00;
+}
+.badge-E {
+  background-color: #E52012;
+}
+.badge-HR {
+  background-color: #F01F5A;
+}
+.badge-primary {
+  background-color: #337AB7;
 }

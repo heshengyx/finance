@@ -4,7 +4,6 @@
 <html lang="zh-CN">
 <head>
 	<title>P2P网-我要投资</title>
-	<link href="${ctx}/css/carousel.css" rel="stylesheet">
 	<style type="text/css">
 	.container-nav ol {
 	  background-color: #F2F2F2;
@@ -13,8 +12,7 @@
 	  border-right: 1px solid #F2F2F2;
 	}
 	.container-content > .row {
-	  margin-top: 10px;
-	  margin-bottom: 10px;
+	  margin-bottom: 15px;
 	}
 	.row-height {
 	  height: 5px;
@@ -39,7 +37,7 @@
 	  <div class="container container-content">
 	    <div class="row">
 		  <div class="col-md-8 col-divider">
-		    <h4>项目列表</h4>
+		    <h3>项目列表</h3>
 		    <div class="row">
 		      <div class="col-sm-2"><h5>标的类型</h5></div>
 		      <div class="col-sm-10">
@@ -83,7 +81,7 @@
 		    </div>
 		  </div>
 		  <div class="col-md-4">
-		  	<h4>新手引导</h4>
+		  	<h3>新手引导</h3>
 		  	<div class="row-height"></div>
 		    <div>什么是信用等级？</div>
 		    <div class="row-height"></div>
@@ -97,8 +95,9 @@
 	  </div>
 	  <br>
 	  <div class="container container-content">
+	    <h3>投资列表</h3>
 	  	<table class="table" id="table-list">
-	  	  <caption><h4>投资列表</h4></caption>
+	  	  <!-- <caption><h4>投资列表</h4></caption> -->
 	      <thead>
 	        <tr>
 	          <th>借款标题</th>
@@ -114,6 +113,7 @@
 	  	</table>
 	  	<div class="row-height"></div>
 	  </div>
+	  <br>
 	</div>
 	<jscript>
 	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
@@ -152,19 +152,19 @@
 			"columnDefs": [
 				{
 					"render": function(data, type, row) {
-				        	return "<a href=\"${ctx}/lend/detail/" + data.id + "\">" + data.title + "</a>";
+				        	return "<h5><a href=\"${ctx}/lend/detail/" + data.id + "\">" + data.title + "</a></h5>";
 				    },
 				    "targets": [0]
 				},
 			    {
 			    	"render": function(data, type, row) {
-			            	return "<span class=\"badge badge-primary\">" + data.level + "</span>";
+			            	return "<h5><span class=\"badge badge-" + data.level + "\">" + data.level + "</span></h5>";
 			        },
 			        "targets": [1]
 			    },
 			    {
 			    	"render": function(data, type, row) {
-			            	return "<span class=\"badge\">80%</span>";
+			            	return "<h5><span class=\"badge\">80%</span></h5>";
 			        },
 			        "targets": [5]
 			    },
