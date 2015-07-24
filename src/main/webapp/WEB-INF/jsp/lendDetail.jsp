@@ -12,9 +12,6 @@
 	.col-divider {
 	  border-right: 1px solid #F2F2F2;
 	}
-	.container-content > .row {
-	  margin-bottom: 15px;
-	}
 	.row-height {
 	  height: 5px;
 	}
@@ -34,6 +31,9 @@
 	}
 	.container-tabs-content {
 	  border-top: 0;
+	}
+	.col-md-4 > .panel {
+	  margin-bottom: 0;
 	}
 	</style>
 	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -57,6 +57,7 @@
 	      </div>
 	      <div class="col-md-4 text-right">借款协议（范本）</div>
 	    </div>
+	    <br>
 	    <div class="row">
 	      <div class="col-md-8">
 	        <div class="row">
@@ -91,7 +92,6 @@
 	        </div>
 	      </div>
 	      <div class="col-md-4">
-	        <div class="highlight">
 			  <div class="panel panel-info">
 			    <div class="panel-heading">
 		     	  <h3 class="panel-title">剩余金额（元）</h3>
@@ -102,7 +102,6 @@
 			      <a class="btn btn-primary btn-lg btn-block" href="${ctx}/register" role="button">投标</a>
 			    </div>
 			  </div>
-			</div>
 	      </div>
 	    </div>
 	  </div>
@@ -220,7 +219,7 @@
 	  <!-- tab2 -->
 	  <div class="container container-content container-tabs-content tab-pane" id="record">
 	    <br>
-	    <table class="table">
+	    <table class="table" id="table-list">
 	      <thead>
 	       <tr class="info">
 	         <th>序号</th>
@@ -229,35 +228,63 @@
 	         <th>投标时间</th>
 	       </tr>
 	      </thead>
-	      <tbody>
-	       <tr class="active">
-	         <th scope="row">1</th>
-	         <td>豆腐郎</td>
-	         <td>450.00元</td>
-	         <td>2015-07-23 09:17</td>
-	       </tr>
-	       <tr>
-	         <th scope="row">2</th>
-	         <td>来挣点</td>
-	         <td>450.00元</td>
-	         <td>2015-07-23 09:17</td>
-	       </tr>
-	       <tr class="active">
-	         <th scope="row">3</th>
-	         <td>大志豆豆妈</td>
-	         <td>450.00元</td>
-	         <td>2015-07-23 09:17</td>
-	       </tr>
-	      </tbody>
 	    </table>
 	  </div>
 	  </div>
 	</div>
 	<jscript>
+	<script src="${ctx}/js/format.js"></script>
 	<script src="${ctx}/js/bootstrap-tab.js"></script>
+	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
 	<script>
+	var table;
 	$(document).ready(function() {
 		$('#navTab a:first').tab('show');
+		
+		table = $('#table-list').dataTable({
+    		"language": {
+                "lengthMenu": "每页 _MENU_ 条记录",
+                "zeroRecords": "没有找到记录",
+                "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                "infoEmpty": "无记录",
+                "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                "search": "搜索",
+                "paginate": {
+			         "first":    "第一页",
+			         "previous": "上一页 ",
+			         "next":     "下一页 ",
+			         "last":     "最后一页 "
+			     }
+            },
+            //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
+            "dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-10'p>><'clear'>>",
+            //"dom": '<"toolbar">rt<"bottom"ilp<"clear">>',
+    		//"pagingType":  "full_numbers",
+    		//"scrollX": "100%",
+    		//"scrollXInner": "100%",
+    		"filter": true, 
+    		"processing": true,
+            "serverSide": true,
+            "ajax": {
+				"url": "${ctx}/invest/record/${product.id}",
+				"type": "POST"
+			},
+			"order": [[ 0, "desc" ]],
+			"columnDefs": [
+				{
+					"render": function(data, type, row) {
+				    	return to_date_hms(data.createTime);
+				    },
+				    "targets": [3]
+				}
+			],
+			"columns": [
+	            { "data": null },
+	            { "data": "username" },
+	            { "data": "money" },
+	            { "data": null }
+	        ]
+		});
 	});
 	</script>
 	</jscript>

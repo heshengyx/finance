@@ -9,10 +9,7 @@
 	  background-color: #F2F2F2;
 	}
 	.col-divider {
-	  border-right: 1px solid #F2F2F2;
-	}
-	.container-content > .row {
-	  margin-bottom: 15px;
+	  border-left: 0px solid #F2F2F2;
 	}
 	.row-height {
 	  height: 5px;
@@ -36,7 +33,7 @@
 	  </div>
 	  <div class="container container-content">
 	    <div class="row">
-		  <div class="col-md-8 col-divider">
+		  <div class="col-md-7">
 		    <h3>项目列表</h3>
 		    <div class="row">
 		      <div class="col-sm-2"><h5>标的类型</h5></div>
@@ -80,6 +77,7 @@
 			  </div>
 		    </div>
 		  </div>
+		  <div class="col-md-1"></div>
 		  <div class="col-md-4">
 		  	<h3>新手引导</h3>
 		  	<div class="row-height"></div>
@@ -109,11 +107,8 @@
 	          <th></th>
 	        </tr>
 	      </thead>
-	      <tbody></tbody>
 	  	</table>
-	  	<div class="row-height"></div>
 	  </div>
-	  <br>
 	</div>
 	<jscript>
 	<script src="${ctx}/js/jquery.dataTables.min.js"></script>

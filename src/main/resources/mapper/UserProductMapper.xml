@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.myself.finance.mapper.UserProductMapper">
 	<resultMap type="com.myself.finance.data.UserProductData" id="userProductResult">
-<result column="NAME" property="userName" jdbcType="VARCHAR" />
+<result column="USERNAME" property="username" jdbcType="VARCHAR" />
 <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
 <result column="MONEY" property="money" jdbcType="NUMERIC" />
 	</resultMap>
 
-	<select id="getData" parameterType="String" resultMap="productResult">
+	<select id="getData" parameterType="String" resultMap="userProductResult">
 		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=VARCHAR}
 	</select>
 	<select id="list" parameterType="pageResult" resultMap="userProductResult">
-		SELECT b.NAME, a.MONEY, a.CREATE_TIME FROM USER_PRODUCT a join USER b on a.USER_ID = b.ID
+		SELECT b.USERNAME, a.MONEY, a.CREATE_TIME FROM USER_PRODUCT a join USER b on a.USER_ID = b.ID
 		<where>
 <if test="entity.productId != null and entity.productId != ''">
 	and a.PRODUCT_ID = #{entity.productId}
