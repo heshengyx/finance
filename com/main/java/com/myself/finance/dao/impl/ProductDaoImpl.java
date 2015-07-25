@@ -36,7 +36,7 @@ public class ProductDaoImpl extends BaseDao<ProductMapper> implements ProductDao
 
 	public List<Product> list(Page<ProductQueryParam> param) {
 		ProductMapper mapper = getMapper(ProductMapper.class);
-		return mapper.list(param);
+		return mapper.query(param);
 	}
 
 }

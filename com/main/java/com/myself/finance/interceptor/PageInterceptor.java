@@ -35,6 +35,7 @@ public class PageInterceptor implements Interceptor {
 	private final static Logger logger = LoggerFactory.getLogger(PageInterceptor.class);
 
 	public Object intercept(Invocation invocation) throws Throwable {
+		logger.info("===============执行SQL===============");
 		StatementHandler statementHandler = (StatementHandler) invocation
 				.getTarget();
 		MetaObject metaStatementHandler = MetaObject

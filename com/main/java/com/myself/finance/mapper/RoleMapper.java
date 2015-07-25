@@ -12,6 +12,6 @@ public interface RoleMapper {
 	int update(Role param);
 	int delete(Role param);
 	Role getData(Role param);
-	List<Role> list(Page<RoleQueryParam> param);
+	List<Role> query(Page<RoleQueryParam> param);
 	List<Role> queryRolesByUserId(String userId);
 }

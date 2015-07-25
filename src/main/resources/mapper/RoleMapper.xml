@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.myself.community.mapper.RoleMapper">
-	<resultMap type="role" id="roleResult">
+	<resultMap type="com.myself.finance.entity.Role" id="roleResult">
 		<id column="ID" property="id" jdbcType="NUMERIC" />
 <result column="NAME" property="name" jdbcType="VARCHAR" />
 <result column="STATUS" property="status" jdbcType="VARCHAR" />
@@ -10,30 +10,30 @@
 <result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
 	</resultMap>
 	
-	<select id="queryRolesByUserId" parameterType="String" resultMap="roleResult">
+	<select id="queryRolesByUserId" resultMap="roleResult">
 		SELECT a.* FROM ROLE a, USER_ROLE b WHERE a.ID = b.ROLE_ID AND b.USER_ID = #{userId}
 	</select>
 	
-	<select id="getRole" parameterType="int" resultMap="roleResult">
-		SELECT * FROM ROLE WHERE ID=#{id, jdbcType=NUMERIC}
+	<select id="getRole" resultMap="roleResult">
+		SELECT a.* FROM ROLE a WHERE a.ID=#{id, jdbcType=NUMERIC}
 	</select>
-	<select id="list" parameterType="pageResult" resultMap="roleResult">
-		SELECT * FROM ROLE 
+	<select id="query" resultMap="roleResult">
+		SELECT a.* FROM ROLE a
 		<where>
 <if test="entity.name != null and entity.name != ''">
-	and NAME = #{entity.name}
+	and a.NAME = #{entity.name}
 </if>
 <if test="entity.status != null and entity.status != ''">
-	and STATUS = #{entity.status}
+	and a.STATUS = #{entity.status}
 </if>
 <if test="entity.createTime != null and entity.createTime != ''">
-	and to_char(CREATE_TIME, 'YYYY-MM-DD') = #{entity.createTime}
+	and to_char(a.CREATE_TIME, 'YYYY-MM-DD') = #{entity.createTime}
 </if>
 </where> 
-		order by CREATE_TIME desc
+		order by a.CREATE_TIME desc
 	</select>
 	
-	<insert id="save" parameterType="role" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO ROLE (ID, NAME, STATUS, CREATE_TIME, REMARKS)
 		VALUES (
 #{id, jdbcType=VARCHAR},
@@ -43,7 +43,7 @@
 #{remarks, jdbcType=VARCHAR})
 	</insert>
 	
-	<update id="update" parameterType="role">
+	<update id="update">
 		update CLAZZ
 		<set>
 <if test="className != null">
@@ -62,7 +62,7 @@
 		</set>
 		where id = #{id, jdbcType=NUMERIC}
 	</update>
-	<delete id="delete" parameterType="int">
+	<delete id="delete">
 		delete from CLAZZ where id = #{id, jdbcType=NUMERIC}
 	</delete>
 </mapper>

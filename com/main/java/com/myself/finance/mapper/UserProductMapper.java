@@ -8,5 +8,5 @@ import com.myself.finance.param.UserProductQueryParam;
 
 public interface UserProductMapper {
 
-	List<UserProductData> list(Page<UserProductQueryParam> param);
+	List<UserProductData> query(Page<UserProductQueryParam> param);
 }

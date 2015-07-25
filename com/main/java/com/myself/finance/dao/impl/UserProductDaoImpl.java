@@ -16,7 +16,7 @@ public class UserProductDaoImpl extends BaseDao<UserProductMapper> implements Us
 
 	public List<UserProductData> list(Page<UserProductQueryParam> param) {
 		UserProductMapper mapper = getMapper(UserProductMapper.class);
-		return mapper.list(param);
+		return mapper.query(param);
 	}
 
 }

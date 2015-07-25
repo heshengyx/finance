@@ -12,5 +12,5 @@ public interface ProductMapper {
 	int update(Product param);
 	int delete(Product param);
 	Product getData(Product param);
-	List<Product> list(Page<ProductQueryParam> param);
+	List<Product> query(Page<ProductQueryParam> param);
 }

@@ -21,7 +21,7 @@ public class PermissionDaoImpl extends BaseDao<PermissionMapper> implements Perm
 
 	public List<Permission> list(PermissionQueryParam param) {
 		PermissionMapper mapper = getMapper(PermissionMapper.class);
-		return mapper.listAll(param);
+		return mapper.list(param);
 	}
 
 	public int save(Permission param) {
@@ -46,7 +46,7 @@ public class PermissionDaoImpl extends BaseDao<PermissionMapper> implements Perm
 
 	public List<Permission> list(Page<PermissionQueryParam> param) {
 		PermissionMapper mapper = getMapper(PermissionMapper.class);
-		return mapper.list(param);
+		return mapper.query(param);
 	}
 
 }

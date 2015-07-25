@@ -41,7 +41,7 @@ public class RoleDaoImpl extends BaseDao<RoleMapper> implements RoleDao {
 
 	public List<Role> list(Page<RoleQueryParam> param) {
 		RoleMapper mapper = getMapper(RoleMapper.class);
-		return mapper.list(param);
+		return mapper.query(param);
 	}
 
 }

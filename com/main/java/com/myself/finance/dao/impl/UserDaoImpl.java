@@ -10,14 +10,24 @@ import com.myself.finance.mapper.UserMapper;
 @Repository
 public class UserDaoImpl extends BaseDao<UserMapper> implements UserDao {
 
-	public int save(User user) {
+	public int save(User param) {
 		UserMapper mapper = getMapper(UserMapper.class);
-		return mapper.save(user);
+		return mapper.save(param);
 	}
 
-	public User getUserByAccount(String account) {
+	public int update(User param) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int delete(User param) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public User getData(User param) {
 		UserMapper mapper = getMapper(UserMapper.class);
-		return mapper.getUserByAccount(account);
+		return mapper.getData(param);
 	}
 
 }

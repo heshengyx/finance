@@ -95,7 +95,9 @@ public class SecurityRealm extends AuthorizingRealm {
 		System.out.println("验证当前Subject时获取到token为"
 				+ ReflectionToStringBuilder.toString(token,
 						ToStringStyle.MULTI_LINE_STYLE));
-		User user = userDao.getUserByAccount(token.getUsername());
+		User param = new User();
+		param.setUsername(token.getUsername());
+		User user = userDao.getData(param);
 		if (null != user) {
 			authcInfo = new SimpleAuthenticationInfo(user,
 					user.getPassword(), user.getUsername());

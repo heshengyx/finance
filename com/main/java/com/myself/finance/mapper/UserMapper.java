@@ -4,6 +4,8 @@ import com.myself.finance.entity.User;
 
 public interface UserMapper {
 
-	int save(User user);
-	User getUserByAccount(String account);
+	int save(User param);
+	int update(User param);
+	int delete(User param);
+	User getData(User param);
 }

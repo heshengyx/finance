@@ -9,13 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myself.common.message.JsonResult;
-import com.myself.finance.data.UserProductData;
 import com.myself.finance.entity.UserAuth;
-import com.myself.finance.page.Page;
 import com.myself.finance.param.UserAuthQueryParam;
-import com.myself.finance.param.UserProductQueryParam;
 import com.myself.finance.service.UserAuthService;
-import com.myself.finance.service.UserProductService;
 
 @Controller
 @RequestMapping("/auth")
@@ -28,16 +24,12 @@ public class AuthController extends BaseController {
 	@ResponseBody
 	public Object record(@PathVariable String userId, UserAuthQueryParam param) {
 		param.setUserId(userId);
-		Page<UserAuthQueryParam> pageResult = new Page<UserAuthQueryParam>();
-		pageResult.setPage(param.getPage());
-		pageResult.setRows(param.getLength());
-		pageResult.setEntity(param);
-		List<UserAuth> datas = userAuthService.list(pageResult);
+		List<UserAuth> datas = userAuthService.list(param);
 		
 		JsonResult<UserAuth> jResult = new JsonResult<UserAuth>();
 		jResult.setDraw(param.getDraw());
-		jResult.setRecordsTotal(pageResult.getTotalRecord());
-		jResult.setRecordsFiltered(pageResult.getTotalRecord());
+		jResult.setRecordsTotal(datas.size());
+		jResult.setRecordsFiltered(datas.size());
 		jResult.setData(datas);
 		return jResult;
 	}

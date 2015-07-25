@@ -184,7 +184,7 @@
 	    </div>
 	    <hr>
 	    <h3>审核状态</h3>
-	    <table class="table">
+	    <table class="table" id="auth-list">
 	      <thead>
 	       <tr class="info">
 	         <th>审核项目</th>
@@ -192,7 +192,7 @@
 	         <th>通过日期</th>
 	       </tr>
 	      </thead>
-	      <tbody>
+	      <!-- <tbody>
 	       <tr class="active">
 	         <td>信用报告</td>
 	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
@@ -208,7 +208,7 @@
 	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
 	         <td>2014-08-11</td>
 	       </tr>
-	      </tbody>
+	      </tbody> -->
 	    </table>
 	    <hr>
 	    <h3>借款描述</h3>
@@ -237,11 +237,10 @@
 	<script src="${ctx}/js/bootstrap-tab.js"></script>
 	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
 	<script>
-	var table;
 	$(document).ready(function() {
 		$('#navTab a:first').tab('show');
 		
-		table = $('#table-list').dataTable({
+		var t = $('#table-list').dataTable({
     		"language": {
                 "lengthMenu": "每页 _MENU_ 条记录",
                 "zeroRecords": "没有找到记录",
@@ -262,15 +261,20 @@
     		//"pagingType":  "full_numbers",
     		//"scrollX": "100%",
     		//"scrollXInner": "100%",
-    		"filter": true, 
+    		"filter": false, 
     		"processing": true,
             "serverSide": true,
             "ajax": {
 				"url": "${ctx}/invest/record/${product.id}",
 				"type": "POST"
 			},
-			"order": [[ 0, "desc" ]],
+			"order": [[ 1, "desc" ]],
 			"columnDefs": [
+				{
+				    "searchable": false,
+				    "orderable": false,
+				    "targets": 0
+				},
 				{
 					"render": function(data, type, row) {
 				    	return to_date_hms(data.createTime);
@@ -282,6 +286,67 @@
 	            { "data": null },
 	            { "data": "username" },
 	            { "data": "money" },
+	            { "data": null }
+	        ]
+		});
+		/* t.on( 'order.dt search.dt', function () {
+	        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+	            cell.innerHTML = i+1;
+	        } );
+	    } ).draw(); */
+		$('#auth-list').dataTable({
+    		/* "language": {
+                "lengthMenu": "每页 _MENU_ 条记录",
+                "zeroRecords": "没有找到记录",
+                "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                "infoEmpty": "无记录",
+                "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                "search": "搜索",
+                "paginate": {
+			         "first":    "第一页",
+			         "previous": "上一页 ",
+			         "next":     "下一页 ",
+			         "last":     "最后一页 "
+			     }
+            }, */
+            //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
+            //"dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-10'p>><'clear'>>",
+            //"dom": '<"toolbar">rt<"bottom"ilp<"clear">>',
+    		//"pagingType":  "full_numbers",
+    		//"scrollX": "100%",
+    		//"scrollXInner": "100%",
+    		"filter": false, 
+    		"processing": true,
+            "serverSide": true,
+            "paginate": false,
+            "lengthChange": false,
+            "sort": false,
+            "info": false,
+            "ajax": {
+				"url": "${ctx}/auth/record/${product.userId}",
+				"type": "POST"
+			},
+			"columnDefs": [
+				{
+					"render": function(data, type, row) {
+						var content = "";
+						if (data.status == "1") {
+							content += '<span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span>';
+						}
+				        return content;
+				    },
+				    "targets": [1]
+				},
+				{
+					"render": function(data, type, row) {
+				    	return to_date(data.createTime);
+				    },
+				    "targets": [2]
+				}
+			],
+			"columns": [
+	            { "data": "authType" },
+	            { "data": null },
 	            { "data": null }
 	        ]
 		});

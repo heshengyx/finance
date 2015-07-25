@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.myself.finance.mapper.ProductMapper">
-	<resultMap type="product" id="productResult">
+	<resultMap type="com.myself.finance.entity.Product" id="productResult">
 		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<id column="USER_ID" property="userId" jdbcType="VARCHAR" />
 <result column="NAME" property="name" jdbcType="VARCHAR" />
 <result column="STATUS" property="status" jdbcType="VARCHAR" />
 <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
@@ -15,10 +16,10 @@
 <result column="TERM" property="term" jdbcType="VARCHAR" />
 	</resultMap>
 
-	<select id="getData" parameterType="String" resultMap="productResult">
+	<select id="getData" resultMap="productResult">
 		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=VARCHAR}
 	</select>
-	<select id="list" parameterType="pageResult" resultMap="productResult">
+	<select id="query" resultMap="productResult">
 		SELECT * FROM PRODUCT 
 		<where>
 <if test="entity.name != null and entity.name != ''">
@@ -34,7 +35,7 @@
 		order by CREATE_TIME desc
 	</select>
 	
-	<insert id="save" parameterType="product" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO PRODUCT (ID, NAME, STATUS, CREATE_TIME, REMARKS)
 		VALUES (
 #{id, jdbcType=VARCHAR},
@@ -43,27 +44,4 @@
 #{createTime, jdbcType=TIMESTAMP},
 #{remarks, jdbcType=VARCHAR})
 	</insert>
-	
-	<update id="update" parameterType="role">
-		update CLAZZ
-		<set>
-<if test="className != null">
-	CLASS_NAME = #{className, jdbcType=VARCHAR},
-</if>
-<if test="tableName != null">
-	TABLE_NAME = #{tableName, jdbcType=VARCHAR},
-</if>
-<if test="title != null">
-	TITLE = #{title, jdbcType=VARCHAR},
-</if>
-<if test="status != null">
-	STATUS = #{status, jdbcType=VARCHAR},
-</if>
-
-		</set>
-		where id = #{id, jdbcType=NUMERIC}
-	</update>
-	<delete id="delete" parameterType="int">
-		delete from CLAZZ where id = #{id, jdbcType=NUMERIC}
-	</delete>
 </mapper>

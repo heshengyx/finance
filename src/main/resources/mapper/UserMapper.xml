@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.myself.finance.mapper.UserMapper">
-	<resultMap type="user" id="userResult">
+	<resultMap type="com.myself.finance.entity.User" id="userResult">
 		<id column="ID" property="id" jdbcType="VARCHAR" />
 <result column="USERNAME" property="username" jdbcType="VARCHAR" />
 <result column="ACCOUNT" property="account" jdbcType="VARCHAR" />
@@ -12,14 +12,14 @@
 <result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
 	</resultMap>
 	
-	<select id="getUserByAccount" parameterType="String" resultMap="userResult">
-		SELECT * FROM USER WHERE ACCOUNT=#{account}
+	<select id="getData" resultMap="userResult">
+		SELECT * FROM USER WHERE 1=1
+		<if test="account != null and account != ''">
+			ACCOUNT = #{account}
+		</if>
 	</select>
 	
-	<select id="getUser" parameterType="int" resultMap="userResult">
-		SELECT * FROM CLAZZ WHERE ID=#{id, jdbcType=NUMERIC}
-	</select>
-	<select id="list" parameterType="pageResult" resultMap="userResult">
+	<select id="list" resultMap="userResult">
 		SELECT * FROM CLAZZ 
 		<where>
 <if test="entity.className != null and entity.className != ''">
@@ -38,7 +38,7 @@
 		order by CREATE_TIME desc
 	</select>
 	
-	<insert id="save" parameterType="user" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO USER (ID, USERNAME, ACCOUNT, PASSWORD, STATUS, CREATE_TIME)
 		VALUES (
 #{id, jdbcType=VARCHAR},
@@ -49,7 +49,7 @@
 #{createTime, jdbcType=TIMESTAMP})
 	</insert>
 	
-	<update id="update" parameterType="user">
+	<update id="update">
 		update CLAZZ
 		<set>
 <if test="className != null">
@@ -68,7 +68,7 @@
 		</set>
 		where id = #{id, jdbcType=NUMERIC}
 	</update>
-	<delete id="delete" parameterType="int">
+	<delete id="delete">
 		delete from CLAZZ where id = #{id, jdbcType=NUMERIC}
 	</delete>
 </mapper>

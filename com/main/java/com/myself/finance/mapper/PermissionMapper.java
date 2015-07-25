@@ -13,7 +13,7 @@ public interface PermissionMapper {
 	int delete(Permission param);
 	Permission getData(Permission param);
 	
-	List<Permission> listAll(PermissionQueryParam param);
-	List<Permission> list(Page<PermissionQueryParam> param);
+	List<Permission> list(PermissionQueryParam param);
+	List<Permission> query(Page<PermissionQueryParam> param);
 	List<Permission> queryPermissionsByRoleId(String roleId);
 }

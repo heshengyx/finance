@@ -24,14 +24,10 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 
-	public int save(User user) {
-		user.setId(UIDGeneratorUtil.getUID());
-		user.setCreateTime(new Date());
-		return userDao.save(user);
-	}
-
-	public User getUserByAccount(String account) {
-		return userDao.getUserByAccount(account);
+	public int save(User param) {
+		param.setId(UIDGeneratorUtil.getUID());
+		param.setCreateTime(new Date());
+		return userDao.save(param);
 	}
 
 	public void register(UserParam param) {
@@ -56,5 +52,19 @@ public class UserServiceImpl implements UserService {
 			throw new ServiceException("用户注册失败");
 		}
 		
+	}
+
+	public int update(User param) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int delete(User param) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public User getData(User param) {
+		return userDao.getData(param);
 	}
 }
