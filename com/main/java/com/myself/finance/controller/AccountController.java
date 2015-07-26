@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/account")
+public class AccountController extends BaseController {
 
 	@RequestMapping("")
 	public String page() {
-		return "user";
+		return "account";
 	}
 }

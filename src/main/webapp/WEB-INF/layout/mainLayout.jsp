@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -86,8 +87,14 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-navbar-collapse-top">
 	    <ul class="nav navbar-nav navbar-right navbar-nav-top">
-	      <li><a href="${ctx}/register"><h5>快速注册</h5></a></li>
-	      <li><a href="${ctx}/login"><h5>立即登录</h5></a></li>
+	      <shiro:notAuthenticated>
+	      <li><h5><a href="${ctx}/register">快速注册</a></h5></li>
+	      <li><h5><a href="${ctx}/login">立即登录</a></h5></li>
+	      </shiro:notAuthenticated>
+	      <shiro:authenticated>
+	      <li><h5><shiro:principal property="username" /></h5></li>
+	      <li><h5><a href="${ctx}/logout">[退出]</a></h5></li>
+	      </shiro:authenticated>
 	      <li><a href="#"><h5>帮助中心</h5></a></li>
 	    </ul>
 	    </div>

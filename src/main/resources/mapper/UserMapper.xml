@@ -15,7 +15,10 @@
 	<select id="getData" resultMap="userResult">
 		SELECT * FROM USER WHERE 1=1
 		<if test="account != null and account != ''">
-			ACCOUNT = #{account}
+			and ACCOUNT = #{account}
+		</if>
+		<if test="username != null and username != ''">
+			and USERNAME = #{username}
 		</if>
 	</select>
 	

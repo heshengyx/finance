@@ -61,7 +61,7 @@
 						$('#message').text(result.message);
 						validator.disableSubmitButtons(false);
 					} else {
-						window.location.href = '${ctx}/user';
+						window.location.href = '${ctx}/account';
 					}
 			    }, 'json');
             },
