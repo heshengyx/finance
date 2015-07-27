@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -14,7 +15,7 @@
     <title><sitemesh:write property="title" /></title>
     <!-- Bootstrap core CSS -->
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${ctx}/css/style.css" rel="stylesheet">
+    <link href="${ctx}/css/home.css" rel="stylesheet">
     <style type="text/css">
     .container-inverse {
       height: 35px;
@@ -58,6 +59,31 @@
 	.navbar-wrapper {
 	  margin-top: 20px;
 	}
+	.collapse-nav {
+	  border: 0px solid red;
+	}
+	.collapse-nav-title {
+	  height: 40px;
+	  line-height: 40px;
+	  padding-left: 20px;
+	  display: block;
+	  cursor: pointer;
+	  background-color: #ECECEC;
+	  border-bottom: 1px solid #FFFFFF;
+	}
+	.collapse-nav-selected {
+	  height: 40px;
+	  line-height: 40px;
+	  padding-left: 20px;
+	  display: block;
+	  background-color: #2DA7E0;
+	  border-bottom: 1px solid #FFFFFF;
+	}
+	.collapse-nav-content {
+	  height: 40px;
+	  line-height: 40px;
+	  padding-left: 38px;
+	}
 	@media (min-width: 970px) {
 	  .navbar-wrapper > .container {
 	    width: 940px;
@@ -89,8 +115,14 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-navbar-collapse-top">
 	    <ul class="nav navbar-nav navbar-right navbar-nav-top">
+	      <shiro:notAuthenticated>
 	      <li><a class="btn btn-link" href="${ctx}/register" role="button">快速注册</a></li>
 	      <li><a class="btn btn-link" href="${ctx}/login" role="button">立即登录</a></li>
+	      </shiro:notAuthenticated>
+	      <shiro:authenticated>
+	      <li><a class="btn btn-link" href="#" role="button"><shiro:principal property="username" /></a></li>
+	      <li><a class="btn btn-link" href="${ctx}/logout" role="button">[退出]</a></li>
+	      </shiro:authenticated>
 	      <li><a class="btn btn-link" href="#" role="button">帮助中心</a></li>
 	    </ul>
 	    </div>
@@ -120,18 +152,6 @@
                 <li><a class="btn btn-link btn-lg" href="${ctx}/lend" role="button">我要投资</a></li>
                 <li><a class="btn btn-link btn-lg" href="${ctx}/borrow" role="button">我要理财</a></li>
                 <li><a class="btn btn-link btn-lg" href="#" role="button">新手指引</a></li>
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
               </ul>
 	    </div>
 	  </div>
@@ -142,7 +162,54 @@
 	</div>
 	</div>
 
-    <sitemesh:write property="body" />
+	<div class="container">
+	  <div class="container-nav">
+	    <ol class="breadcrumb">
+		  <li><a href="#">首页</a></li>
+		  <li><a href="#">我要投资</a></li>
+		  <li class="active">投资项目</li>
+		</ol>
+	  </div>
+	  <div class="container-content">
+	    <div class="row container-row" style="margin-top:0;">
+	      <div class="col-md-2">
+	        <div class="collapse-nav">
+	          <div class="collapse-nav-selected">
+	            <span class="glyphicon glyphicon-user"></span>&nbsp;我的账户
+	          </div>
+	          <div class="collapse-nav-title" data-toggle="collapse" data-target="#nav2">
+	            <span class="glyphicon glyphicon-usd"></span>&nbsp;资金管理
+	          </div>
+	          <div class="collapse-nav-tag" id="nav2">
+	          	<div class="collapse-nav-content">交易记录</div>
+	          	<div class="collapse-nav-content">充值</div>
+	          	<div class="collapse-nav-content">提现</div>
+	          </div>
+	          <div class="collapse-nav-title" data-toggle="collapse" data-target="#nav3">
+	            <span class="glyphicon glyphicon-list-alt"></span>&nbsp;理财管理
+	          </div>
+	          <div class="collapse-nav-tag" id="nav3">
+	          	<div class="collapse-nav-content">交易记录</div>
+	          	<div class="collapse-nav-content">充值</div>
+	          	<div class="collapse-nav-content">提现</div>
+	          </div>
+	          <div class="collapse-nav-title" data-toggle="collapse" data-target="#nav4">
+	            <span class="glyphicon glyphicon-calendar"></span>&nbsp;借款管理
+	          </div>
+	          <div class="collapse-nav-tag" id="nav4">
+	          	<div class="collapse-nav-content">交易记录</div>
+	          	<div class="collapse-nav-content">充值</div>
+	          	<div class="collapse-nav-content">提现</div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-md-10">
+	        <sitemesh:write property="body" />
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    
 	
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -5,16 +5,14 @@ body {
 }
 .container-content {
   margin: 0 auto;
-  border: 1px solid #dddddd;
-  background-color: #FFFFFF;
+  padding-bottom: 15px;
 }
 .form-content {
   /*margin-left: -26px;
   border: 1px solid red;*/
   margin-top: 20px;
-  margin-right: 25px;
-  /* padding-right: 10px;
-  padding-left: 10px; */
+  padding-right: 10px;
+  padding-left: 10px;
 }
 @media (min-width: 970px) {
   .container-content {

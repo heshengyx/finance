@@ -104,6 +104,7 @@
 			  </div>
 	      </div>
 	    </div>
+	    <br>
 	  </div>
 	  <!--  -->
 	  <br>
@@ -192,29 +193,13 @@
 	         <th>通过日期</th>
 	       </tr>
 	      </thead>
-	      <!-- <tbody>
-	       <tr class="active">
-	         <td>信用报告</td>
-	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
-	         <td>2015-07-22</td>
-	       </tr>
-	       <tr>
-	         <td>身份认证</td>
-	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
-	         <td>2014-08-11</td>
-	       </tr>
-	       <tr class="active">
-	         <td>学历认证</td>
-	         <td><span class="badge badge-AA"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span></td>
-	         <td>2014-08-11</td>
-	       </tr>
-	      </tbody> -->
 	    </table>
 	    <hr>
 	    <h3>借款描述</h3>
 	    <div class="row">
 	      <div class="col-xs-11 col-xs-offset-1">此次借款用于房屋装修。本人在临颍县固厢乡北四村学校担任校长至今6年，每个月都有固定收入。本人长期定居在河南省漯河市临颍县，信用记录也很好，完全可以承担此次借款所产生的费用。</div>
 	    </div>
+	    <br>
 	  </div>
 	  <!-- tab2 -->
 	  <div class="container container-content container-tabs-content tab-pane" id="record">
@@ -229,6 +214,7 @@
 	       </tr>
 	      </thead>
 	    </table>
+	    <br>
 	  </div>
 	  </div>
 	</div>
@@ -295,20 +281,20 @@
 	        } );
 	    } ).draw(); */
 		$('#auth-list').dataTable({
-    		/* "language": {
-                "lengthMenu": "每页 _MENU_ 条记录",
+    		"language": {
+                /* "lengthMenu": "每页 _MENU_ 条记录",*/
                 "zeroRecords": "没有找到记录",
-                "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                /* "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )", */
                 "infoEmpty": "无记录",
-                "infoFiltered": "(从 _MAX_ 条记录过滤)",
+                /* "infoFiltered": "(从 _MAX_ 条记录过滤)",
                 "search": "搜索",
                 "paginate": {
 			         "first":    "第一页",
 			         "previous": "上一页 ",
 			         "next":     "下一页 ",
 			         "last":     "最后一页 "
-			     }
-            }, */
+			     } */
+            },
             //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
             //"dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-10'p>><'clear'>>",
             //"dom": '<"toolbar">rt<"bottom"ilp<"clear">>',

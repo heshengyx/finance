@@ -10,7 +10,7 @@
 	<navTitle>登录</navTitle>
 	<div class="container">
 	<div class="container-nav"></div>
-	<div class="container container-content">
+	<div class="container-content">
 		<div class="row">
 		  <div class="col-md-8 text-center hidden-xs"><img src="${ctx}/images/login.png" /></div>
 		  <div class="col-md-4">
@@ -61,7 +61,7 @@
 						$('#message').text(result.message);
 						validator.disableSubmitButtons(false);
 					} else {
-						window.location.href = '${ctx}/account';
+						window.location.href = '${ctx}/home';
 					}
 			    }, 'json');
             },

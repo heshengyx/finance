@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/account")
-public class AccountController extends BaseController {
+@RequestMapping("/home")
+public class HomeController extends BaseController {
 
 	@RequestMapping("")
 	public String page() {
-		return "account";
+		return "home";
 	}
 }
