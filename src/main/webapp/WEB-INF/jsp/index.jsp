@@ -58,13 +58,13 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="${ctx}/images/d34d7155-8db6-4850-a779-d786933bcc9e.jpg" alt="First slide">
+          <img class="first-slide" src="${ctx}/images/e2e45d32-9ff4-4898-8385-4611c2e7b112.jpg" alt="First slide">
         </div>
         <div class="item">
-          <img class="second-slide" src="${ctx}/images/9996de59-a169-4903-b603-b15a35548d37.jpg" alt="Second slide">
+          <img class="second-slide" src="${ctx}/images/bbfbf78c-8c88-477d-a8c9-afa35cc0f00b.jpg" alt="Second slide">
         </div>
         <div class="item">
-          <img class="third-slide" src="${ctx}/images/b8b97899-d3c3-4cd2-9051-d1964cfde783.png" alt="Third slide">
+          <img class="third-slide" src="${ctx}/images/47abdd8a-d6c7-4089-9dc9-47ddff9dbdd5.jpg" alt="Third slide">
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
