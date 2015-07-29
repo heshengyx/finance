@@ -6,6 +6,7 @@
 	<mapping path="/lend/detail/*" decorator="/WEB-INF/layout/mainLayout.jsp"/>
 	<mapping path="/borrow" decorator="/WEB-INF/layout/mainLayout.jsp"/>
 	<mapping path="/home" decorator="/WEB-INF/layout/homeLayout.jsp"/>
+	<mapping path="/home/*" decorator="/WEB-INF/layout/homeLayout.jsp"/>
 	
 	<mapping path="/login" decorator="/WEB-INF/layout/layout.jsp"/>
 	<mapping path="/register" decorator="/WEB-INF/layout/layout.jsp"/>

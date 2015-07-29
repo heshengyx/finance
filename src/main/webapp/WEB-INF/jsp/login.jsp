@@ -18,10 +18,10 @@
 		  	  <div id="message" class="btn-danger"></div>
 			  <form id="loginForm" action="${ctx}/login/refer" method="post">
 		        <div class="form-group">
-				  <label for="inputUsername">用户名</label>
+				  <label for="inputAccount">账号</label>
 				  <div class="input-group">
 				    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-				    <input type="text" class="form-control" name="account" id="inputUsername" placeholder="手机号/邮箱">
+				    <input type="text" class="form-control" name="account" id="inputAccount" placeholder="手机号/邮箱">
 				  </div>
 				</div>
 				<div class="form-group">
@@ -33,7 +33,7 @@
 				</div>
 		        <div class="checkbox">
 		          <label>
-		            <input type="checkbox" value="remember-me"> 记住用户名
+		            <input type="checkbox" value="remember-me"> 记住账号
 		          </label>
 		        </div>
 		        <button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>

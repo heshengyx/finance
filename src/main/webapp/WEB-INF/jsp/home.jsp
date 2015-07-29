@@ -1,5 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>  
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -62,7 +63,6 @@
 </head>
 
 <body>
-	
 	<div class="container-panel">
 	  <div class="container-panel-heading"></div>
 	  <div class="container-user">
@@ -75,7 +75,7 @@
 	      <div class="col-md-3 col-md-offset-2">
 	        <div class="row">
 	          <div class="col-sm-8">
-	            <span class="container-name">宫本宝藏</span>
+	            <span class="container-name"><shiro:principal property="username" /></span>
 	          </div>
 	          <div class="col-sm-3 container-alarm">
 	            <img src="${ctx}/images/alarm.png" />
@@ -108,7 +108,7 @@
 	    <div class="row">
 	      <div class="col-md-4 col-md-offset-2">
 	        <a href="#"><span class="glyphicon glyphicon-phone col-md-glyphicon"></span></a>&nbsp;&nbsp;
-	        <a href="#"><span class="glyphicon glyphicon-user col-md-glyphicon"></span></a>&nbsp;&nbsp;
+	        <a href="#" id="glyphicon-user" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-user col-md-glyphicon"></span></a>&nbsp;&nbsp;
 	        <a href="#"><span class="glyphicon glyphicon-usd col-md-glyphicon"></span></a>&nbsp;&nbsp;
 	        <a href="#"><span class="glyphicon glyphicon-envelope col-md-glyphicon"></span></a>
 	      </div>
@@ -207,5 +207,19 @@
       </tbody>
       </table>
 	</div>
+	<jscript>
+	<script>
+	$(document).ready(function() {
+		var options = {
+		    delay: { show: 500, hide: 100 },
+		    title: '进行实名认证后，您才可以进行投资、借款。',
+		    trigger:'click',
+		};
+	  	$('#glyphicon-user').tooltip(options);
+	  	$('#glyphicon-user').tooltip('show');
+	  //$('[data-toggle="tooltip"]').tooltip();
+	});
+	</script>
+	</jscript>
 </body>
 </html>

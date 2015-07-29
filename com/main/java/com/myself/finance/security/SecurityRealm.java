@@ -96,11 +96,11 @@ public class SecurityRealm extends AuthorizingRealm {
 				+ ReflectionToStringBuilder.toString(token,
 						ToStringStyle.MULTI_LINE_STYLE));
 		User param = new User();
-		param.setUsername(token.getUsername());
+		param.setAccount(token.getUsername());
 		User user = userDao.getData(param);
 		if (null != user) {
 			authcInfo = new SimpleAuthenticationInfo(user,
-					user.getPassword(), user.getUsername());
+					user.getPassword(), user.getAccount());
 			this.setSession("currentUser", user);
 		}
 		return authcInfo;

@@ -220,7 +220,6 @@
 	</div>
 	<jscript>
 	<script src="${ctx}/js/format.js"></script>
-	<script src="${ctx}/js/bootstrap-tab.js"></script>
 	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
 	<script>
 	$(document).ready(function() {
