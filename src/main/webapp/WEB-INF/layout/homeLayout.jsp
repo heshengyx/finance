@@ -181,8 +181,8 @@
 	            <span class="glyphicon glyphicon-usd"></span>&nbsp;资金管理
 	          </div>
 	          <div class="collapse-nav-tag" id="nav2">
-	          	<div class="collapse-nav-content"><a href="${ctx}/home/capital">交易记录</a></div>
-	          	<div class="collapse-nav-content"><a href="${ctx}/home/deposit">充值</a></div>
+	          	<div class="collapse-nav-content"><a href="${ctx}/home/capital/trade">交易记录</a></div>
+	          	<div class="collapse-nav-content"><a href="${ctx}/home/capital/deposit">充值</a></div>
 	          	<div class="collapse-nav-content">提现</div>
 	          </div>
 	          <div class="collapse-nav-title" data-toggle="collapse" data-target="#nav3">

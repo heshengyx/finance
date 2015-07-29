@@ -29,6 +29,16 @@
 	.form-date {
 	  width: 100px;
 	}
+	.container-tabs-content {
+	  border-top: 0;
+	  padding-top: 20px;
+  	  padding-bottom: 20px;
+	}
+	.img-bank {
+	  width: 120px;
+	  height: 33px;
+	  border: 1px solid #dddddd;
+	}
 	</style>
 	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="${ctx}/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -37,48 +47,56 @@
 <body>
 	<div class="container-panel-content">
 	  <h4>充值</h4>
-	  <form class="form-inline">
-	  <div class="form-group">
-	    <label for="inputType">查询类型</label>
-	    <select class="form-control" id="inputType">
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
-		</select>
-		&nbsp;&nbsp;
-	  </div>
-	  <div class="form-group">
-	    <label for="inputDate">查询时间</label>
-	    <input type="text" class="form-control form-date" id="inputDate" style="width:120px;">
-	    &nbsp;&nbsp;
-	  </div>
-	  <button type="submit" class="btn btn-primary btn-sm">查询</button>
+	  <form class="form-horizontal">
+	    <div class="form-group">
+	      <label class="col-sm-2 control-label">充值方式</label>
+	      <div class="col-sm-10">
+	        <ul class="nav nav-tabs" id="navTab">
+			  <li role="presentation" class="active"><a href="#detail" data-toggle="tab">网银充值</a></li>
+			  <li role="presentation"><a href="#record" data-toggle="tab">渠道充值</a></li>
+			</ul>
+			<div class="tab-content">
+	  		  <div role="tabpanel" class="container-panel-content container-tabs-content tab-pane active" id="detail">
+	  		    <div class="row">
+	  		      <div class="col-md-3"><img src="${ctx}/images/code_102.jpg" class="img-rounded img-bank" /></div>
+	  		      <div class="col-md-3"><img src="${ctx}/images/code_308.jpg" class="img-rounded img-bank center-block" /></div>
+	  		      <div class="col-md-3"><img src="${ctx}/images/code_105.jpg" class="img-rounded img-bank center-block" /></div>
+	  		      <div class="col-md-3"><img src="${ctx}/images/code_309.jpg" class="img-rounded img-bank center-block" /></div>
+	  		    </div>
+	  		  </div>
+	  		</div>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-sm-2 control-label">账户余额</label>
+	      <div class="col-sm-10">
+	        <p class="form-control-static"><span>￥0.00元</span></p>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label for="inputMenoy" class="col-sm-2 control-label">充值金额</label>
+	      <div class="col-sm-2">
+	        <input type="text" class="form-control" id="inputMenoy">
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-sm-2 control-label">充值费用</label>
+	      <div class="col-sm-10">
+	        <p class="form-control-static"><span>￥0.00元</span></p>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-sm-2 control-label">实际金额</label>
+	      <div class="col-sm-10">
+	        <p class="form-control-static"><span>￥0.00元</span></p>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <div class="col-sm-offset-2 col-sm-3">
+	        <button type="submit" class="btn btn-primary btn-block">充值</button>
+	      </div>
+	    </div>
 	  </form>
-      <table class="table">
-      <caption>交易记录</caption>
-      <thead>
-        <tr class="info">
-          <th>时间</th>
-          <th>类型明细</th>
-          <th>收入</th>
-          <th>支出</th>
-          <th>结余</th>
-          <th>备注</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>债权投资</td>
-          <td>0.00元</td>
-          <td>0.00元</td>
-          <td>0.0%</td>
-          <td>0.0%</td>
-          <td>查看</td>
-        </tr>
-      </tbody>
-      </table>
 	</div>
 	<jscript>
 	<script src="${ctx}/js/bootstrap-datetimepicker.min.js"></script>

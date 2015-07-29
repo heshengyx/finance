@@ -36,7 +36,7 @@
 
 <body>
 	<div class="container-panel-content">
-	  <h4>查询记录</h4>
+	  <h4>交易记录</h4>
 	  <form class="form-inline">
 	  <div class="form-group">
 	    <label for="inputType">查询类型</label>
@@ -57,7 +57,7 @@
 	  <button type="submit" class="btn btn-primary btn-sm">查询</button>
 	  </form>
       <table class="table">
-      <caption>交易记录</caption>
+      <caption>交易列表</caption>
       <thead>
         <tr class="info">
           <th>时间</th>

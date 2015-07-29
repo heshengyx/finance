@@ -11,19 +11,4 @@ public class HomeController extends BaseController {
 	public String page() {
 		return "home";
 	}
-	
-	@RequestMapping("/capital")
-	public String capital() {
-		return "capital";
-	}
-	
-	@RequestMapping("/deposit")
-	public String deposit() {
-		return "deposit";
-	}
-	
-	@RequestMapping("/withdraw")
-	public String withdraw() {
-		return "withdraw";
-	}
 }
