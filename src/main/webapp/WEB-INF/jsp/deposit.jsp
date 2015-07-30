@@ -32,7 +32,6 @@
 	.container-tabs-content {
 	  border-top: 0;
 	  padding-top: 20px;
-  	  padding-bottom: 20px;
 	}
 	.img-bank {
 	  width: 120px;
@@ -49,20 +48,56 @@
 	  <h4>充值</h4>
 	  <form class="form-horizontal">
 	    <div class="form-group">
-	      <label class="col-sm-2 control-label">充值方式</label>
+	      <label class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;充值方式</label>
 	      <div class="col-sm-10">
 	        <ul class="nav nav-tabs" id="navTab">
-			  <li role="presentation" class="active"><a href="#detail" data-toggle="tab">网银充值</a></li>
-			  <li role="presentation"><a href="#record" data-toggle="tab">渠道充值</a></li>
+			  <li role="presentation" class="active"><a href="#cyber" data-toggle="tab">网银充值</a></li>
+			  <li role="presentation"><a href="#canal" data-toggle="tab">渠道充值</a></li>
 			</ul>
 			<div class="tab-content">
-	  		  <div role="tabpanel" class="container-panel-content container-tabs-content tab-pane active" id="detail">
+	  		  <div role="tabpanel" class="container-panel-content container-tabs-content tab-pane active" id="cyber">
 	  		    <div class="row">
 	  		      <div class="col-md-3"><img src="${ctx}/images/code_102.jpg" class="img-rounded img-bank" /></div>
 	  		      <div class="col-md-3"><img src="${ctx}/images/code_308.jpg" class="img-rounded img-bank center-block" /></div>
 	  		      <div class="col-md-3"><img src="${ctx}/images/code_105.jpg" class="img-rounded img-bank center-block" /></div>
 	  		      <div class="col-md-3"><img src="${ctx}/images/code_309.jpg" class="img-rounded img-bank center-block" /></div>
 	  		    </div>
+	  		    <br>
+	  		    <div class="row">
+	  		      <div class="col-md-3"><img src="${ctx}/images/code_103.jpg" class="img-rounded img-bank" /></div>
+	  		    </div>
+	  		    <br>
+	  		    <table class="table table-bordered">
+			      <thead>
+			        <tr class="info">
+			          <th class="text-center">卡种</th>
+			          <th class="text-center">单笔限额(元)</th>
+			          <th class="text-center">每日限额(元)</th>
+			          <th class="text-center">必要条件</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr class="active text-center">
+			          <td rowspan="2">储蓄卡</td>
+			          <td>1000万</td>
+			          <td>无限额</td>
+			          <td>工行网银U盾用户</td>
+			        </tr>
+			        <tr class="active text-center">
+			          <td>200</td>
+			          <td>500</td>
+			          <td>电子银行口令卡及手机短信认证</td>
+			        </tr>
+			      </tbody>
+			    </table>
+	  		  </div>
+	  		  <div role="tabpanel" class="container-panel-content container-tabs-content tab-pane" id="canal">
+	  		    <div class="row">
+	  		      <div class="col-md-4"><img src="${ctx}/images/checkin_kq.jpg" class="img-rounded img-bank center-block" /></div>
+	  		      <div class="col-md-4"><img src="${ctx}/images/tenpay.jpg" class="img-rounded img-bank center-block" /></div>
+	  		      <div class="col-md-4"><img src="${ctx}/images/yeepay.jpg" class="img-rounded img-bank center-block" /></div>
+	  		    </div>
+	  		    <br>
 	  		  </div>
 	  		</div>
 	      </div>
@@ -74,9 +109,12 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="inputMenoy" class="col-sm-2 control-label">充值金额</label>
-	      <div class="col-sm-2">
-	        <input type="text" class="form-control" id="inputMenoy">
+	      <label for="inputMenoy" class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;充值金额</label>
+	      <div class="col-sm-3">
+            <div class="input-group">
+	          <input type="text" class="form-control" id="inputMenoy" placeholder="0.00">
+	          <div class="input-group-addon">元</div>
+	        </div>
 	      </div>
 	    </div>
 	    <div class="form-group">

@@ -26,9 +26,6 @@
   	  padding-left: 20px;
   	  padding-right: 20px;
 	}
-	.form-date {
-	  width: 100px;
-	}
 	</style>
 	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="${ctx}/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -39,7 +36,7 @@
 	  <h4>交易记录</h4>
 	  <form class="form-inline">
 	  <div class="form-group">
-	    <label for="inputType">查询类型</label>
+	    <label class="control-label" for="inputType">查询类型</label>
 	    <select class="form-control" id="inputType">
 		  <option>1</option>
 		  <option>2</option>
@@ -50,8 +47,8 @@
 		&nbsp;&nbsp;
 	  </div>
 	  <div class="form-group">
-	    <label for="inputDate">查询时间</label>
-	    <input type="text" class="form-control form-date" id="inputDate" style="width:120px;">
+	    <label class="control-label" for="inputDate">查询时间</label>
+	    <input type="text" class="form-control" id="inputDate">
 	    &nbsp;&nbsp;
 	  </div>
 	  <button type="submit" class="btn btn-primary btn-sm">查询</button>
@@ -82,6 +79,7 @@
 	</div>
 	<jscript>
 	<script src="${ctx}/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="${ctx}/js/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
 	$(document).ready(function() {
 		$('#inputDate').datetimepicker({
