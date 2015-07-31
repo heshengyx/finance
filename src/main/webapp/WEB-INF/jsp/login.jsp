@@ -16,7 +16,7 @@
 		  <div class="col-md-4">
 		  <div class="form-content">
 		  	  <div id="message" class="btn-danger"></div>
-			  <form id="loginForm" action="${ctx}/login/refer" method="post">
+			  <form id="dataForm" action="${ctx}/login/refer" method="post">
 		        <div class="form-group">
 				  <label for="inputAccount">账号</label>
 				  <div class="input-group">
@@ -53,7 +53,7 @@
 	<jscript>
 	<script>
 	$(document).ready(function() {
-		$('#loginForm').bootstrapValidator({
+		$('#dataForm').bootstrapValidator({
 			submitHandler: function(validator, form, submitButton) {
 				//validator.defaultSubmit();
 				$.post(form.attr('action'), form.serialize(), function(result) {

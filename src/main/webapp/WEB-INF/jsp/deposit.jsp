@@ -46,7 +46,14 @@
 <body>
 	<div class="container-panel-content">
 	  <h4>充值</h4>
-	  <form class="form-horizontal">
+	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/account/deposit" method="post">
+	    <input type="hidden" name="accountId" value="h78fc614ce459cc168000">
+	    <input type="hidden" name="type" value="1">
+	    <div class="form-group">
+	      <div class="col-sm-offset-2 col-sm-10">
+	        <div id="message" class="btn-danger"></div>
+	      </div>
+	    </div>
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;充值方式</label>
 	      <div class="col-sm-10">
@@ -109,10 +116,10 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="inputMenoy" class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;充值金额</label>
+	      <label for="inputAmount" class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;充值金额</label>
 	      <div class="col-sm-3">
             <div class="input-group">
-	          <input type="text" class="form-control" id="inputMenoy" placeholder="0.00">
+	          <input type="text" class="form-control" id="inputAmount" name="amount" placeholder="0.00">
 	          <div class="input-group-addon">元</div>
 	        </div>
 	      </div>
@@ -148,6 +155,17 @@
     		todayBtn: true,
     		todayHighlight: true
     	});
+		$('#dataForm').bootstrapValidator({
+			submitHandler: function(validator, form, submitButton) {
+				//validator.defaultSubmit();
+				$.post(form.attr('action'), form.serialize(), function(result) {
+					if (result.code == '500') {
+						$('#message').text(result.message);
+						validator.disableSubmitButtons(false);
+					}
+			    }, 'json');
+            }
+        });
 	});
 	</script>
 	</jscript>

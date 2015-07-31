@@ -15,6 +15,7 @@
     <title><sitemesh:write property="title" /></title>
     <!-- Bootstrap core CSS -->
     <link href="${ctx}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctx}/css/bootstrapValidator.min.css" rel="stylesheet">
     <link href="${ctx}/css/home.css" rel="stylesheet">
     <style type="text/css">
     .container-inverse {
@@ -218,6 +219,7 @@
     <!-- js -->
     <script src="${ctx}/js/jquery.min.js" ></script>
     <script src="${ctx}/js/bootstrap.min.js"></script>
+    <script src="${ctx}/js/bootstrapValidator.min.js"></script>
     <sitemesh:write property="jscript" />
   </body>
 </html>
