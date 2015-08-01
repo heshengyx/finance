@@ -38,11 +38,9 @@
 	  <div class="form-group">
 	    <label class="control-label" for="inputType">查询类型</label>
 	    <select class="form-control" id="inputType">
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
+	      <option>全部</option>
+		  <option>充值</option>
+		  <option>提现</option>
 		</select>
 		&nbsp;&nbsp;
 	  </div>

@@ -6,18 +6,20 @@
 		<id column="USER_ID" property="userId" jdbcType="VARCHAR" />
 <result column="NAME" property="name" jdbcType="VARCHAR" />
 <result column="STATUS" property="status" jdbcType="VARCHAR" />
+<result column="BALANCE" property="balance" jdbcType="NUMERIC" />
 <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
 <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
 <result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
-<result column="TITLE" property="title" jdbcType="VARCHAR" />
-<result column="LEVEL" property="level" jdbcType="VARCHAR" />
-<result column="YEAR_RATE" property="yearRate" jdbcType="NUMERIC" />
-<result column="MONEY" property="money" jdbcType="NUMERIC" />
-<result column="TERM" property="term" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<select id="getData" resultMap="accountResult">
-		SELECT * FROM ACCOUNT WHERE ID = #{id, jdbcType=VARCHAR} AND USER_ID = #{userId, jdbcType=VARCHAR}
+		SELECT * FROM ACCOUNT WHERE 1=1
+		<if test="id != null and id != ''">
+			AND ID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="userId != null and userId != ''">
+			AND USER_ID = #{userId, jdbcType=VARCHAR}
+		</if>
 	</select>
 	<select id="query" resultMap="accountResult">
 		SELECT * FROM PRODUCT 

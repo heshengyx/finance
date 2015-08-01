@@ -10,6 +10,7 @@
 	<mapping path="/home/capital/trade" decorator="/WEB-INF/layout/homeLayout.jsp"/>
 	<mapping path="/home/capital/deposit" decorator="/WEB-INF/layout/homeLayout.jsp"/>
 	<mapping path="/home/capital/withdraw" decorator="/WEB-INF/layout/homeLayout.jsp"/>
+	<mapping path="/home/account/resume" decorator="/WEB-INF/layout/homeLayout.jsp"/>
 	
 	<mapping path="/login" decorator="/WEB-INF/layout/layout.jsp"/>
 	<mapping path="/register" decorator="/WEB-INF/layout/layout.jsp"/>

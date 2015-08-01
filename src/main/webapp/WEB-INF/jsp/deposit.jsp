@@ -46,8 +46,7 @@
 <body>
 	<div class="container-panel-content">
 	  <h4>充值</h4>
-	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/account/deposit" method="post">
-	    <input type="hidden" name="accountId" value="h78fc614ce459cc168000">
+	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/capital/deposit/refer" method="post">
 	    <input type="hidden" name="type" value="1">
 	    <div class="form-group">
 	      <div class="col-sm-offset-2 col-sm-10">
@@ -142,6 +141,17 @@
 	      </div>
 	    </div>
 	  </form>
+	  
+	  <div class="alert alert-warning" role="alert">
+		<h4><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>&nbsp;温馨提示</h4>
+	    <ol>
+		  <li>为了您的账户安全，请在充值前进行身份认证、手机绑定以及交易密码设置。</li>
+		  <li>您的账户资金将通过第三方平台进行充值。</li>
+		  <li>请注意您的银行卡充值限制，以免造成不便。</li>
+		  <li>禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用。</li>
+		  <li>如果充值金额没有及时到账，请联系客服，400-090-6600。</li>
+		</ol>
+	  </div>
 	</div>
 	<jscript>
 	<script src="${ctx}/js/bootstrap-datetimepicker.min.js"></script>

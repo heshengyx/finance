@@ -184,7 +184,7 @@
 	          <div class="collapse-nav-tag" id="nav2">
 	          	<div class="collapse-nav-content"><a href="${ctx}/home/capital/trade">交易记录</a></div>
 	          	<div class="collapse-nav-content"><a href="${ctx}/home/capital/deposit">充值</a></div>
-	          	<div class="collapse-nav-content">提现</div>
+	          	<div class="collapse-nav-content"><a href="${ctx}/home/capital/withdraw">提现</a></div>
 	          </div>
 	          <div class="collapse-nav-title" data-toggle="collapse" data-target="#nav3">
 	            <span class="glyphicon glyphicon-list-alt"></span>&nbsp;理财管理
@@ -199,6 +199,14 @@
 	          </div>
 	          <div class="collapse-nav-tag" id="nav4">
 	          	<div class="collapse-nav-content">交易记录</div>
+	          	<div class="collapse-nav-content">充值</div>
+	          	<div class="collapse-nav-content">提现</div>
+	          </div>
+	          <div class="collapse-nav-title" data-toggle="collapse" data-target="#nav5">
+	            <span class="glyphicon glyphicon-calendar"></span>&nbsp;账户管理
+	          </div>
+	          <div class="collapse-nav-tag" id="nav5">
+	          	<div class="collapse-nav-content"><a href="${ctx}/home/account/resume">个人信息</a></div>
 	          	<div class="collapse-nav-content">充值</div>
 	          	<div class="collapse-nav-content">提现</div>
 	          </div>

@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>  
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -99,7 +100,7 @@
 	          </div>         
 	        </div>
 	      </div>
-	      <div class="col-md-3"><div class="col-md-top">账户余额&nbsp;0.00元</div></div>
+	      <div class="col-md-3"><div class="col-md-top">账户余额&nbsp;<fmt:formatNumber value="${account.balance/100}" type="currency" pattern="#,#00.00#"/>元</div></div>
 	      <div class="col-md-3">
 	        <a class="btn btn-success" href="#" role="button">充值</a>&nbsp;&nbsp;
 	        <a class="btn btn-info" href="#" role="button">提现</a>
@@ -131,13 +132,13 @@
 	    <div class="col-md-2 text-center"><h4>账户余额</h4></div>
 	  </div>
 	  <div class="row">
-	    <div class="col-md-3 text-center"><h5><span class="col-md-glyphicon">0.00</span>元</h5></div>
+	    <div class="col-md-3 text-center"><h5><span class="col-md-glyphicon"><fmt:formatNumber value="${account.balance/100}" type="currency" pattern="#,#00.00#"/></span>元</h5></div>
 	    <div class="col-md-1 text-center col-md-glyphicon">=</div>
 	    <div class="col-md-2 text-center"><h5><span class="col-md-glyphicon">0.00</span>元</h5></div>
 	    <div class="col-md-1 text-center col-md-glyphicon">+</div>
 	    <div class="col-md-2 text-center"><h5><span class="col-md-glyphicon">0.00</span>元</h5></div>
 	    <div class="col-md-1 text-center col-md-glyphicon">+</div>
-	    <div class="col-md-2 text-center"><h5><span class="col-md-glyphicon">0.00</span>元</h5></div>
+	    <div class="col-md-2 text-center"><h5><span class="col-md-glyphicon"><fmt:formatNumber value="${account.balance/100}" type="currency" pattern="#,#00.00#"/></span>元</h5></div>
 	  </div>
 	  <hr>
 	  <table class="table">

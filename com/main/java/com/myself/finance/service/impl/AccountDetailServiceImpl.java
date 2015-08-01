@@ -64,9 +64,7 @@ public class AccountDetailServiceImpl implements AccountDetailService {
 		if (amt <= 0) {
 			throw new ServiceException("账户充值失败,原因:金额填写有误");
 		}
-		String accountId = param.getAccountId();
 		Account account = new Account();
-		account.setId(accountId);
 		account.setUserId(param.getUserId());
 		account = accountDao.getData(account);
 		if (account == null) {
@@ -83,7 +81,7 @@ public class AccountDetailServiceImpl implements AccountDetailService {
 			
 			AccountDetail accountDetail = new AccountDetail();
 			accountDetail.setId(UIDGeneratorUtil.getUID());
-			accountDetail.setAccountId(accountId);
+			accountDetail.setAccountId(account.getId());
 			accountDetail.setStatus("1");
 			accountDetail.setAmount(amt);
 			accountDetail.setCreateTime(date);

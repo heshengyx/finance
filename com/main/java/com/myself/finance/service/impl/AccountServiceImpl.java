@@ -32,8 +32,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	public Account getData(Account param) {
-		// TODO Auto-generated method stub
-		return null;
+		return accountDao.getData(param);
 	}
 
 }
