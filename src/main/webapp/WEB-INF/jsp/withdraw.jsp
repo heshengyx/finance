@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>  
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -38,6 +39,9 @@
 	  height: 33px;
 	  border: 1px solid #dddddd;
 	}
+	.alert-message {
+	  margin: 0;
+	}
 	</style>
 	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="${ctx}/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -46,11 +50,13 @@
 <body>
 	<div class="container-panel-content">
 	  <h4>提现</h4>
-	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/account/deposit" method="post">
-	    <input type="hidden" name="type" value="1">
+	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/capital/withdraw/refer" method="post">
 	    <div class="form-group">
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <div id="message" class="btn-danger"></div>
+	        <div class="alert alert-warning alert-dismissible alert-message" role="alert" id="alert-message">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <span id="message"></span>
+			</div>
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -64,7 +70,7 @@
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label">可用金额</label>
 	      <div class="col-sm-10">
-	        <p class="form-control-static"><span>￥0.00元</span></p>
+	        <p class="form-control-static"><span class="text-danger">￥<fmt:formatNumber value="${account.balance/100}" type="currency" pattern="#,#00.00#"/></span>元</p>
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -79,13 +85,13 @@
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label">提现费用</label>
 	      <div class="col-sm-10">
-	        <p class="form-control-static"><span>￥0.00元</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>提现费用将从您的人人贷账户余额中扣除</span></p>
+	        <p class="form-control-static"><span class="text-danger">￥0.00</span>元&nbsp;&nbsp;&nbsp;&nbsp;<span>提现费用将从您的人人贷账户余额中扣除</span></p>
 	      </div>
 	    </div>
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label">实际扣除金额</label>
 	      <div class="col-sm-10">
-	        <p class="form-control-static"><span>￥0.00元</span></p>
+	        <p class="form-control-static"><span class="text-danger">￥0.00</span>元</p>
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -95,9 +101,9 @@
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label for="inputAmount" class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;交易密码</label>
+	      <label for="inputTradePassword" class="col-sm-2 control-label"><span class="text-danger">*</span>&nbsp;交易密码</label>
 	      <div class="col-sm-3">
-            <input type="text" class="form-control" id="inputAmount" name="amount">
+            <input type="text" class="form-control" id="inputTradePassword" name="tradePassword">
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -121,20 +127,14 @@
 	<script src="${ctx}/js/bootstrap-datetimepicker.min.js"></script>
 	<script>
 	$(document).ready(function() {
-		$('#inputDate').datetimepicker({
-    		language: 'zh-CN',
-    		minView: "month",
-    		format: 'yyyy-mm-dd',
-    		autoclose: true,
-    		todayBtn: true,
-    		todayHighlight: true
-    	});
+		$('#alert-message').hide();
 		$('#dataForm').bootstrapValidator({
 			submitHandler: function(validator, form, submitButton) {
 				//validator.defaultSubmit();
 				$.post(form.attr('action'), form.serialize(), function(result) {
 					if (result.code == '500') {
 						$('#message').text(result.message);
+						$('#alert-message').show();
 						validator.disableSubmitButtons(false);
 					}
 			    }, 'json');

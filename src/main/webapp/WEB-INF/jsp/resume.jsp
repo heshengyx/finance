@@ -56,8 +56,11 @@
 	      <form class="form-horizontal" id="dataForm" action="${ctx}/home/account/deposit" method="post">
 	        <div class="form-group">
 		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;昵称</label>
-		      <div class="col-sm-9">
+		      <div class="col-sm-6">
 		        <p class="form-control-static">宫本宝藏</p>
+		      </div>
+		      <div class="col-sm-3 text-center">
+		        <button type="submit" class="btn btn-primary btn-block">修改信息</button>
 		      </div>
 		    </div>
 		    <div class="form-group">
@@ -65,7 +68,7 @@
 		      <div class="col-sm-6">
 		        <p class="form-control-static"></p>
 		      </div>
-		      <div class="col-sm-3">
+		      <div class="col-sm-3 text-center">
 		        <p class="form-control-static">去认证</p>
 		      </div>
 		    </div>
@@ -74,7 +77,7 @@
 		      <div class="col-sm-6">
 		        <p class="form-control-static"></p>
 		      </div>
-		      <div class="col-sm-3">
+		      <div class="col-sm-3 text-center">
 		        <p class="form-control-static">去认证</p>
 		      </div>
 		    </div>
@@ -83,8 +86,77 @@
 		      <div class="col-sm-6">
 		        <p class="form-control-static">132 **** 5714</p>
 		      </div>
-		      <div class="col-sm-3">
-		        <p class="form-control-static">去认证</p>
+		      <div class="col-sm-3 text-center">
+		        <p class="form-control-static">去绑定</p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;邮箱地址</label>
+		      <div class="col-sm-6">
+		        <p class="form-control-static"></p>
+		      </div>
+		      <div class="col-sm-3 text-center">
+		        <p class="form-control-static">去绑定</p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;性别</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;出生日期</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;最高学历</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label">毕业院校</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;婚姻状况</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;居住地址</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;公司行业</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;公司规模</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;职位</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;月收入</label>
+		      <div class="col-sm-9">
+		        <p class="form-control-static"></p>
 		      </div>
 		    </div>
 	      </form>

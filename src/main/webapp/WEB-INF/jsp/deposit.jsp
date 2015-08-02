@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>  
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -38,6 +39,39 @@
 	  height: 33px;
 	  border: 1px solid #dddddd;
 	}
+	.alert-message {
+	  margin: 0;
+	}
+	a.img-link {
+	  position: absolute;
+	  width: 120px;
+	  height: 34px;
+	  left: 15px;
+	  top: 0;
+	  z-index: 1;
+	}
+	a.img-active img {
+	  border: 1px solid #2EA7E1;
+	}
+	a.img-active i.ct {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  left: 0;
+	  top: 0;
+	  background: url(/images/hover.png);
+	  z-index: 2;
+	  display: block;
+	}
+	a.img-active i.rt {
+	  position: absolute;
+	  width: 20px;
+	  height: 20px;
+	  right: 0;
+	  top: 0;
+	  background: url(/images/selected.png) no-repeat;
+	  z-index: 3;
+	}
 	</style>
 	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="${ctx}/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -47,10 +81,12 @@
 	<div class="container-panel-content">
 	  <h4>充值</h4>
 	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/capital/deposit/refer" method="post">
-	    <input type="hidden" name="type" value="1">
 	    <div class="form-group">
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <div id="message" class="btn-danger"></div>
+	        <div class="alert alert-warning alert-dismissible alert-message" role="alert" id="alert-message">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <span id="message"></span>
+			</div>
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -63,9 +99,28 @@
 			<div class="tab-content">
 	  		  <div role="tabpanel" class="container-panel-content container-tabs-content tab-pane active" id="cyber">
 	  		    <div class="row">
-	  		      <div class="col-md-3"><img src="${ctx}/images/code_102.jpg" class="img-rounded img-bank" /></div>
-	  		      <div class="col-md-3"><img src="${ctx}/images/code_308.jpg" class="img-rounded img-bank center-block" /></div>
-	  		      <div class="col-md-3"><img src="${ctx}/images/code_105.jpg" class="img-rounded img-bank center-block" /></div>
+	  		      <div class="col-md-3">
+	  		        <a href="javascript:void(0);" class="img-link img-active" data-value="ICBC">
+	  		          <img src="${ctx}/images/code_102.jpg" class="img-rounded img-bank center-block" />
+	  		          <i class="ct"></i>
+	  		          <i class="rt"></i>
+	  		        </a>
+	  		      </div>
+	  		      <div class="col-md-3">
+	  		        <a href="javascript:void(0);" class="img-link" data-value="ABC">
+	  		          <img src="${ctx}/images/code_308.jpg" class="img-rounded img-bank center-block" />
+	  		          <i class="ct"></i>
+	  		          <i class="rt"></i>
+	  		        </a>
+	  		      </div>
+	  		      <div class="col-md-3">
+	  		        <a href="javascript:void(0);" class="img-link">
+	  		          <img src="${ctx}/images/code_105.jpg" class="img-rounded img-bank center-block" />
+	  		          <i class="ct"></i>
+	  		          <i class="rt"></i>
+	  		        </a>
+	  		      </div>
+	  		      
 	  		      <div class="col-md-3"><img src="${ctx}/images/code_309.jpg" class="img-rounded img-bank center-block" /></div>
 	  		    </div>
 	  		    <br>
@@ -99,7 +154,13 @@
 	  		  </div>
 	  		  <div role="tabpanel" class="container-panel-content container-tabs-content tab-pane" id="canal">
 	  		    <div class="row">
-	  		      <div class="col-md-4"><img src="${ctx}/images/checkin_kq.jpg" class="img-rounded img-bank center-block" /></div>
+	  		      <div class="col-md-4">
+	  		        <a href="javascript:void(0);" class="img-link img-active" data-value="ICBC">
+	  		          <img src="${ctx}/images/checkin_kq.jpg" class="img-rounded img-bank center-block" />
+	  		          <i class="ct"></i>
+	  		          <i class="rt"></i>
+	  		        </a>	        
+	  		      </div>
 	  		      <div class="col-md-4"><img src="${ctx}/images/tenpay.jpg" class="img-rounded img-bank center-block" /></div>
 	  		      <div class="col-md-4"><img src="${ctx}/images/yeepay.jpg" class="img-rounded img-bank center-block" /></div>
 	  		    </div>
@@ -111,7 +172,7 @@
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label">账户余额</label>
 	      <div class="col-sm-10">
-	        <p class="form-control-static"><span>￥0.00元</span></p>
+	        <p class="form-control-static"><span class="text-danger">￥<fmt:formatNumber value="${account.balance/100}" type="currency" pattern="#,#00.00#"/></span>元</p>
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -126,13 +187,13 @@
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label">充值费用</label>
 	      <div class="col-sm-10">
-	        <p class="form-control-static"><span>￥0.00元</span></p>
+	        <p class="form-control-static"><span class="text-danger">￥0.00</span>元</p>
 	      </div>
 	    </div>
 	    <div class="form-group">
 	      <label class="col-sm-2 control-label">实际金额</label>
 	      <div class="col-sm-10">
-	        <p class="form-control-static"><span>￥0.00元</span></p>
+	        <p class="form-control-static"><span class="text-danger">￥0.00</span>元</p>
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -157,6 +218,7 @@
 	<script src="${ctx}/js/bootstrap-datetimepicker.min.js"></script>
 	<script>
 	$(document).ready(function() {
+		$('#alert-message').hide();
 		$('#inputDate').datetimepicker({
     		language: 'zh-CN',
     		minView: "month",
@@ -171,11 +233,25 @@
 				$.post(form.attr('action'), form.serialize(), function(result) {
 					if (result.code == '500') {
 						$('#message').text(result.message);
+						$('#alert-message').show();
 						validator.disableSubmitButtons(false);
 					}
 			    }, 'json');
             }
         });
+		$("#cyber .img-link").each(function(index) {
+			var select = $(this);
+			//select.css('cursor', 'pointer');
+			//select.css('display', 'block');
+			//alert(index);
+			select.click(function() {
+				$("#cyber .img-link").each(function(index) {
+					$(this).removeClass('img-active');
+				});
+				select.addClass('img-active');
+				//alert(select.attr('data-value'));
+			});
+		});
 	});
 	</script>
 	</jscript>
