@@ -40,6 +40,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
 		}
 	}
 
+	
 	private boolean isRepeatSubmit(HttpServletRequest request) {
 		String serverToken = (String) request.getSession(false).getAttribute(
 				"token");

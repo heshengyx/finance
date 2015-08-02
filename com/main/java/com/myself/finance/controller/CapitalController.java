@@ -43,6 +43,7 @@ public class CapitalController extends BaseController {
 		return "deposit";
 	}
 	
+	
 	@RequestMapping(value = "/deposit/refer", method = RequestMethod.POST)
 	@ResponseBody
 	@Token(remove=true)
