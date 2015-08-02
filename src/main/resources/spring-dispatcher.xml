@@ -44,9 +44,17 @@
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/fonts/" mapping="/fonts/**" />
 	<mvc:resources location="/locales/" mapping="/locales/**" />
+	
+	<!-- <mvc:interceptors>
+        配置Token拦截器，防止用户重复提交数据
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.myself.finance.interceptor.TokenInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors> -->
 
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" /> -->
 	<!-- <bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 		<property name="interceptors">  
@@ -55,6 +63,23 @@
 	        </list>  
 	    </property>
 	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+	   <property name="interceptors">
+	      <list>
+	          <bean class="com.myself.finance.interceptor.TokenInterceptor"/>
+	      </list>
+	   </property>
+	</bean> -->
+	
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">   
+	    <property name="interceptors">  
+	        <list>  
+	            <bean class="com.myself.finance.interceptor.TokenInterceptor"/>  
+	        </list>  
+	    </property>  
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+	
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.myself.common.annotation.Token;
 import com.myself.common.exception.ServiceException;
 import com.myself.common.message.JsonMessage;
 import com.myself.finance.entity.Account;
@@ -32,6 +33,7 @@ public class CapitalController extends BaseController {
 	}
 	
 	@RequestMapping("/deposit")
+	@Token(save=true)
 	public String deposit(Model model) {
 		User user = getCurrentUser();
 		Account account = new Account();
@@ -43,6 +45,7 @@ public class CapitalController extends BaseController {
 	
 	@RequestMapping(value = "/deposit/refer", method = RequestMethod.POST)
 	@ResponseBody
+	@Token(remove=true)
 	public Object deposit(AccountParam param) {
 		JsonMessage jMessage = new JsonMessage();
 		User user = getCurrentUser();

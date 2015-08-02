@@ -81,6 +81,7 @@
 	<div class="container-panel-content">
 	  <h4>充值</h4>
 	  <form class="form-horizontal" id="dataForm" action="${ctx}/home/capital/deposit/refer" method="post">
+	    <input type="hidden" name="token" value="${token}" />
 	    <div class="form-group">
 	      <div class="col-sm-offset-2 col-sm-10">
 	        <div class="alert alert-warning alert-dismissible alert-message" role="alert" id="alert-message">
