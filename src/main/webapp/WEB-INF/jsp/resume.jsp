@@ -46,6 +46,7 @@
 <body>
 	<div class="container-panel-content">
 	  <h4>个人信息</h4>
+	  <br>
 	  <div class="row">
 	    <div class="col-md-2">
 	      <a href="#" class="thumbnail">

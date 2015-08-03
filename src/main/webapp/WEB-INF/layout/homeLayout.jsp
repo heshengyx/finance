@@ -207,8 +207,9 @@
 	          </div>
 	          <div class="collapse-nav-tag" id="nav5">
 	          	<div class="collapse-nav-content"><a href="${ctx}/home/account/resume">个人信息</a></div>
-	          	<div class="collapse-nav-content">充值</div>
-	          	<div class="collapse-nav-content">提现</div>
+	          	<div class="collapse-nav-content">认证信息</div>
+	          	<div class="collapse-nav-content"><a href="${ctx}/home/account/security">安全信息</a></div>
+	          	<div class="collapse-nav-content"><a href="${ctx}/home/account/bankcard">银行卡信息</a></div>
 	          </div>
 	        </div>
 	      </div>

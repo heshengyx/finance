@@ -16,4 +16,14 @@ public class AccountController extends BaseController {
 	public String resume() {
 		return "resume";
 	}
+	
+	@RequestMapping("/security")
+	public String security() {
+		return "security";
+	}
+	
+	@RequestMapping("/bankcard")
+	public String bankcard() {
+		return "bankcard";
+	}
 }

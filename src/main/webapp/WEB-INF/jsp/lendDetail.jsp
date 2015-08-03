@@ -207,7 +207,7 @@
 	    <table class="table" id="table-list">
 	      <thead>
 	       <tr class="info">
-	         <th>序号</th>
+	         <th width="50">序号</th>
 	         <th>投标人</th>
 	         <th>投标金额</th>
 	         <th>投标时间</th>
@@ -227,6 +227,7 @@
 		
 		var t = $('#table-list').dataTable({
     		"language": {
+    			"processing": "处理中...",
                 "lengthMenu": "每页 _MENU_ 条记录",
                 "zeroRecords": "没有找到记录",
                 "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
@@ -234,10 +235,10 @@
                 "infoFiltered": "(从 _MAX_ 条记录过滤)",
                 "search": "搜索",
                 "paginate": {
-			         "first":    "第一页",
-			         "previous": "上一页 ",
-			         "next":     "下一页 ",
-			         "last":     "最后一页 "
+                	 "first":    "首页",
+			         "previous": "上页 ",
+			         "next":     "下页 ",
+			         "last":     "末页 "
 			     }
             },
             //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
@@ -258,6 +259,9 @@
 				{
 				    "searchable": false,
 				    "orderable": false,
+				    "render": function(data, type, row) {
+				    	return "";
+				    },
 				    "targets": 0
 				},
 				{
@@ -272,8 +276,16 @@
 	            { "data": "username" },
 	            { "data": "money" },
 	            { "data": null }
-	        ]
+	        ],
+	        initComplete: function () {
+	        	$("#table-list tbody tr").each(function(i) { 
+	    			$(this).find("td:first").html(i + 1); 
+	    		});
+	        }
 		});
+		/* $("#table-list tbody tr").each(function(i) { 
+			$(this).find("td:first").html(i + 1); 
+		}); */
 		/* t.on( 'order.dt search.dt', function () {
 	        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
 	            cell.innerHTML = i+1;
