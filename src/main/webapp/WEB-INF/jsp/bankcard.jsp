@@ -59,8 +59,70 @@
 	        <h3><span class="glyphicon glyphicon-plus"></span></h3>
 	        <hr>
 	        <div class="caption">
-	        <span><a href="#">新增银行卡</a></span>
+	        <span><a href="#" data-toggle="modal" data-target="#myModal">新增银行卡</a></span>
 	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">添加银行卡</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form class="form-horizontal" id="dataForm" action="${ctx}/home/capital/deposit/refer" method="post">
+	          <div class="form-group">
+		        <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;开户人姓名</label>
+		        <div class="col-sm-5">
+		          <input type="text" class="form-control" id="inputAccountName" name="accountName">
+		        </div>
+		      </div>
+		      <div class="form-group">
+		        <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;银行卡号</label>
+		        <div class="col-sm-5">
+		          <input type="text" class="form-control" id="inputAccountName" name="accountName">
+		        </div>
+		      </div>
+		      <div class="form-group">
+		        <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;选择银行</label>
+		        <div class="col-sm-5">
+		          <div class="btn-group">
+			      <button type="button" class="btn btn-default"><div class="text-left">请选择银行</div></button>
+			      <div class="input-group-btn">
+			        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+			        <ul class="dropdown-menu dropdown-menu-right">
+			          <li><a href="#">Action</a></li>
+			          <li><a href="#">Another action</a></li>
+			          <li><a href="#">Something else here</a></li>
+			          <li role="separator" class="divider"></li>
+			          <li><a href="#">Separated link</a></li>
+			        </ul>
+			      </div><!-- /btn-group -->
+			      </div><!-- /input-group -->
+		        </div>
+		      </div>
+		      <div class="form-group">
+		        <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;开户行所在地</label>
+		        <div class="col-sm-5">
+		          <input type="text" class="form-control" id="inputAccountName" name="accountName">
+		        </div>
+		      </div>
+		      <div class="form-group">
+		        <label class="col-sm-3 control-label"><span class="text-danger">*</span>&nbsp;开户行名</label>
+		        <div class="col-sm-5">
+		          <input type="text" class="form-control" id="inputAccountName" name="accountName">
+		        </div>
+		      </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary">保存</button>
 	      </div>
 	    </div>
 	  </div>
