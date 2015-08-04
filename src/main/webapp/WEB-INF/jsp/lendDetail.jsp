@@ -225,7 +225,7 @@
 	$(document).ready(function() {
 		$('#navTab a:first').tab('show');
 		
-		var t = $('#table-list').dataTable({
+		var t = $('#table-list').DataTable({
     		"language": {
     			"processing": "处理中...",
                 "lengthMenu": "每页 _MENU_ 条记录",
@@ -278,20 +278,17 @@
 	            { "data": null }
 	        ],
 	        initComplete: function () {
-	        	$("#table-list tbody tr").each(function(i) { 
+	        	/* $("#table-list tbody tr").each(function(i) { 
 	    			$(this).find("td:first").html(i + 1); 
-	    		});
+	    		}); */
 	        }
 		});
-		/* $("#table-list tbody tr").each(function(i) { 
-			$(this).find("td:first").html(i + 1); 
-		}); */
-		/* t.on( 'order.dt search.dt', function () {
+		t.on( 'order.dt search.dt', function () {
 	        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
 	            cell.innerHTML = i+1;
 	        } );
-	    } ).draw(); */
-		$('#auth-list').dataTable({
+	    } ).draw();
+		$('#auth-list').DataTable({
     		"language": {
                 /* "lengthMenu": "每页 _MENU_ 条记录",*/
                 "zeroRecords": "没有找到记录",

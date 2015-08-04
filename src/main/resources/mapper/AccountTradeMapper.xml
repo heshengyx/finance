@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myself.finance.mapper.AccountTradeMapper">
+	<resultMap type="com.myself.finance.entity.AccountTrade" id="accountTradeResult">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+<result column="TYPE" property="type" jdbcType="VARCHAR" />
+<result column="NAME" property="name" jdbcType="VARCHAR" />
+<result column="STATUS" property="status" jdbcType="VARCHAR" />
+<result column="AMOUNT" property="amount" jdbcType="NUMERIC" />
+<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+<result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getData" resultMap="accountTradeResult">
+		SELECT * FROM PRODUCT WHERE ID=#{id, jdbcType=VARCHAR}
+	</select>
+	<select id="query" resultMap="accountTradeResult">
+		SELECT * FROM ACCOUNT_TRADE 
+		<where>
+<if test="entity.type != null and entity.type != ''">
+	and TYPE = #{entity.type}
+</if>
+<if test="entity.date != null and entity.date != ''">
+	and to_char(CREATE_TIME, 'YYYY-MM-DD') = #{entity.date}
+</if>
+and USER_ID = #{entity.userId}
+</where>
+		order by CREATE_TIME desc
+	</select>
+	
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ACCOUNT_TRADE (ID, USER_ID, NAME, STATUS, TYPE, AMOUNT, CREATE_TIME, REMARKS)
+		VALUES (
+#{id, jdbcType=VARCHAR},
+#{userId, jdbcType=VARCHAR},
+#{name, jdbcType=VARCHAR},
+#{status, jdbcType=VARCHAR},
+#{type, jdbcType=VARCHAR},
+#{amount, jdbcType=NUMERIC},
+#{createTime, jdbcType=TIMESTAMP},
+#{remarks, jdbcType=VARCHAR})
+	</insert>
+</mapper>

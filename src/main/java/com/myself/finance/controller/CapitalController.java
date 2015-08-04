@@ -1,5 +1,7 @@
 package com.myself.finance.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.myself.common.annotation.Token;
 import com.myself.common.exception.ServiceException;
 import com.myself.common.message.JsonMessage;
+import com.myself.common.message.JsonResult;
 import com.myself.finance.entity.Account;
+import com.myself.finance.entity.AccountTrade;
 import com.myself.finance.entity.User;
+import com.myself.finance.page.Page;
 import com.myself.finance.param.AccountParam;
+import com.myself.finance.param.AccountTradeQueryParam;
 import com.myself.finance.service.AccountService;
+import com.myself.finance.service.AccountTradeService;
 
 @Controller
 @RequestMapping("/home/capital")
@@ -27,9 +34,31 @@ public class CapitalController extends BaseController {
 	@Autowired
 	private AccountService accountService;
 	
+	@Autowired
+	private AccountTradeService accountTradeService;
+	
 	@RequestMapping("/trade")
 	public String trade() {
 		return "trade";
+	}
+	
+	@RequestMapping("/trade/list")
+	@ResponseBody
+	public Object list(AccountTradeQueryParam param) {
+		User user = getCurrentUser();
+		param.setUserId(user.getId());
+		Page<AccountTradeQueryParam> pageResult = new Page<AccountTradeQueryParam>();
+		pageResult.setPage(param.getPage());
+		pageResult.setRows(param.getLength());
+		pageResult.setEntity(param);
+		List<AccountTrade> datas = accountTradeService.list(pageResult);
+		
+		JsonResult<AccountTrade> jResult = new JsonResult<AccountTrade>();
+		jResult.setDraw(param.getDraw());
+		jResult.setRecordsTotal(pageResult.getTotalRecord());
+		jResult.setRecordsFiltered(pageResult.getTotalRecord());
+		jResult.setData(datas);
+		return jResult;
 	}
 	
 	@RequestMapping("/deposit")

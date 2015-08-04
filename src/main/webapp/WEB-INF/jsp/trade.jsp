@@ -37,20 +37,20 @@
 	  <br>
 	  <form class="form-inline" action="#" method="post" id="dataForm">
 	  <div class="form-group">
-	    <label class="control-label" for="inputType">查询类型</label>
+	    <label class="control-label" for="inputType">查询类型</label>&nbsp;
 	    <select class="form-control" id="inputType" name="type">
-	      <option value="0">全部</option>
+	      <option value="">全部</option>
 		  <option value="1">充值</option>
-		  <option value="2">提现</option>
+		  <option value="0">提现</option>
 		</select>
 		&nbsp;&nbsp;
 	  </div>
 	  <div class="form-group">
-	    <label class="control-label" for="inputDate">查询时间</label>
+	    <label class="control-label" for="inputDate">查询时间</label>&nbsp;
 	    <input type="text" class="form-control" id="inputDate" name="date">
 	    &nbsp;&nbsp;
 	  </div>
-	  <button type="submit" class="btn btn-primary btn-sm" id="search-btn">查询</button>
+	  <button type="button" class="btn btn-primary btn-sm" id="search-btn">查询</button>
 	  </form>
       <table class="table" id="table-list">
       <caption>交易列表</caption>
@@ -65,6 +65,7 @@
         </tr>
       </thead>
       </table>
+      <br>
 	</div>
 	<jscript>
 	<script src="${ctx}/js/format.js"></script>
@@ -81,7 +82,7 @@
     		todayBtn: true,
     		todayHighlight: true
     	});
-		var t = $('#table-list').dataTable({
+		var t = $('#table-list').DataTable({
     		"language": {
     			"processing": "处理中...",
                 "lengthMenu": "每页 _MENU_ 条记录",
@@ -98,7 +99,7 @@
 			     }
             },
             //"dom": "<'row'<'col-xs-2'l><'#mytool.col-xs-4'><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
-            "dom": "<'toolbar'>rt<'bottom'<'row'<'col-xs-2'i><'col-xs-10'p>><'clear'>>",
+            "dom": "<'toolbar'>rt<'bottom'<'row'<'col-md-5'i><'col-md-7'p>><'clear'>>",
             //"dom": '<"toolbar">rt<"bottom"ilp<"clear">>',
     		//"pagingType":  "full_numbers",
     		//"scrollX": "100%",
@@ -107,15 +108,22 @@
     		"processing": true,
             "serverSide": true,
             "ajax": {
-				"url": "${ctx}/home/capital/trade/refer",
+				"url": "${ctx}/home/capital/trade/list",
 				"type": "POST"
 			},
 			"order": [[ 0, "desc" ]],
-			"columnDefs": [			{
+			"columnDefs": [			
+			    {
 					"render": function(data, type, row) {
 				    	return to_date_hms(data.createTime);
 				    },
 				    "targets": [0]
+				},
+				{
+					"render": function(data, type, row) {
+				    	return jmoney(data.amount);
+				    },
+				    "targets": [4]
 				}
 			],
 			"columns": [
@@ -124,16 +132,17 @@
 	            { "data": null },
 	            { "data": null },
 	            { "data": null },
-	            { "data": null }
+	            { "data": "remarks" }
 	        ]
 		});
 		/* $("#example tbody tr").each(function(i) { 
 			$(this).find("td:first").html(i + 1); 
 		});  */
 		$("#search-btn").click(function() {
-	        var search = "?";
-	        search += "type=" + $("#inputType").val();
-    		t.ajax.url("${ctx}/home/capital/trade/refer" + search).load();
+	        var search = "?random=" + Math.random();
+	        search += "&type=" + $("#inputType").val();
+	        search += "&date=" + $("#inputDate").val();
+    		t.ajax.url("${ctx}/home/capital/trade/list" + search).load();
     	});
 		/* $('#dataForm').bootstrapValidator({
 			submitHandler: function(validator, form, submitButton) {

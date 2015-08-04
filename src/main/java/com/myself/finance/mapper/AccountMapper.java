@@ -1,7 +1,7 @@
 package com.myself.finance.mapper;
 
 import com.myself.finance.entity.Account;
-import com.myself.finance.entity.AccountDetail;
+import com.myself.finance.entity.AccountTrade;
 
 public interface AccountMapper {
 
@@ -10,5 +10,5 @@ public interface AccountMapper {
 	int delete(Account param);
 	Account getData(Account param);
 	
-	int save(Account account, AccountDetail accountDetail);
+	int save(Account account, AccountTrade accountDetail);
 }

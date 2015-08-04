@@ -11,9 +11,9 @@ import com.myself.common.exception.ServiceException;
 import com.myself.common.utils.MoneyUtil;
 import com.myself.common.utils.UIDGeneratorUtil;
 import com.myself.finance.dao.AccountDao;
-import com.myself.finance.dao.AccountDetailDao;
+import com.myself.finance.dao.AccountTradeDao;
 import com.myself.finance.entity.Account;
-import com.myself.finance.entity.AccountDetail;
+import com.myself.finance.entity.AccountTrade;
 import com.myself.finance.param.AccountParam;
 import com.myself.finance.service.AccountService;
 
@@ -27,7 +27,7 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDao accountDao;
 	
 	@Autowired
-	private AccountDetailDao accountDetailDao;
+	private AccountTradeDao accountDetailDao;
 	
 	public void save(Account param) {
 		param.setId(UIDGeneratorUtil.getUID());
@@ -76,9 +76,9 @@ public class AccountServiceImpl implements AccountService {
 				throw new ServiceException("账户充值失败,原因:更新余额出错");
 			}
 			
-			AccountDetail accountDetail = new AccountDetail();
+			AccountTrade accountDetail = new AccountTrade();
 			accountDetail.setId(UIDGeneratorUtil.getUID());
-			accountDetail.setAccountId(account.getId());
+			accountDetail.setUserId(param.getUserId());
 			accountDetail.setStatus("1");
 			accountDetail.setType("1");
 			accountDetail.setAmount(amt);
@@ -118,9 +118,9 @@ public class AccountServiceImpl implements AccountService {
 				throw new ServiceException("账户取现失败,原因:更新余额出错");
 			}
 			
-			AccountDetail accountDetail = new AccountDetail();
+			AccountTrade accountDetail = new AccountTrade();
 			accountDetail.setId(UIDGeneratorUtil.getUID());
-			accountDetail.setAccountId(account.getId());
+			accountDetail.setUserId(param.getUserId());
 			accountDetail.setStatus("1");
 			accountDetail.setType("0");
 			accountDetail.setAmount(amt);

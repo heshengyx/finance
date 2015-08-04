@@ -17,6 +17,9 @@
 	.dataTables_wrapper .dataTables_length {
 	  padding-top: 0.755em;
 	}
+	.highlight {
+	  background-color: #F2F2F2;
+	}
 	</style>
 	<link href="${ctx}/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
@@ -113,11 +116,11 @@
 	  </div>
 	</div>
 	<jscript>
+	<script src="${ctx}/js/format.js"></script>
 	<script src="${ctx}/js/jquery.dataTables.min.js"></script>
 	<script>
-	var table;
 	$(document).ready(function() {
-		table = $('#table-list').dataTable({
+		var table = $('#table-list').DataTable({
     		"language": {
     			"processing": "处理中...",
                 "lengthMenu": "每页 _MENU_ 条记录",
@@ -139,7 +142,7 @@
     		//"pagingType":  "full_numbers",
     		//"scrollX": "100%",
     		//"scrollXInner": "100%",
-    		"filter": true, 
+    		"filter": false, 
     		"processing": true,
             "serverSide": true,
             "ajax": {
@@ -161,6 +164,12 @@
 			        "targets": [1]
 			    },
 			    {
+					"render": function(data, type, row) {
+				    	return jmoney(data.money);
+				    },
+				    "targets": [3]
+				},
+			    {
 			    	"render": function(data, type, row) {
 			            	return "<h5><span class=\"badge\">80%</span></h5>";
 			        },
@@ -181,14 +190,13 @@
 	            { "data": null },
 	            { "data": null },
 	            { "data": "yearRate" },
-	            { "data": "money" },
+	            { "data": null },
 	            { "data": "term" },
 	            { "data": null },
 	            { "data": null }
 	        ]
     	});
-		/* $('#table-list tbody')
-        .on( 'mouseover', 'td', function () {
+		/* table.on( 'mouseover', 'td', function () {
             var colIdx = table.cell(this).index().column;
             if ( colIdx !== lastIdx ) {
                 $( table.cells().nodes() ).removeClass( 'highlight' );
