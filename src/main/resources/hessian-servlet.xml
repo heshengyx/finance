@@ -20,4 +20,5 @@
         <property name="service" ref="permissionService" />  
         <property name="serviceInterface" value="com.myself.finance.service.PermissionService" />  
     </bean>
+    
 </beans>
