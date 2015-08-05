@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/common/include.jsp"%>  
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 	
 	<!-- start: Meta -->

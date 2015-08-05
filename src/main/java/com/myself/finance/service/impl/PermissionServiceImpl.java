@@ -13,7 +13,7 @@ import com.myself.finance.page.Page;
 import com.myself.finance.param.PermissionQueryParam;
 import com.myself.finance.service.PermissionService;
 
-@Service
+@Service("permissionService")
 public class PermissionServiceImpl implements PermissionService {
 
 	@Autowired

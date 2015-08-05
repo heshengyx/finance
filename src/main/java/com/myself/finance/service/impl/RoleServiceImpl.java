@@ -13,7 +13,7 @@ import com.myself.finance.page.Page;
 import com.myself.finance.param.RoleQueryParam;
 import com.myself.finance.service.RoleService;
 
-@Service
+@Service("roleService")
 public class RoleServiceImpl implements RoleService {
 
 	@Autowired

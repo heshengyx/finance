@@ -20,6 +20,9 @@
 		<if test="username != null and username != ''">
 			and USERNAME = #{username}
 		</if>
+		<if test="id != null and id != ''">
+			and ID = #{id}
+		</if>
 	</select>
 	
 	<select id="list" resultMap="userResult">
