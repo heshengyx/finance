@@ -18,7 +18,7 @@ import com.myself.finance.entity.User;
 import com.myself.finance.param.UserParam;
 import com.myself.finance.service.UserService;
 
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
 
 	private final static Logger logger = LoggerFactory
